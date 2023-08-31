@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./index.module.css";
 import useSticky from "./useSticky-hook";
 import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store";
 
 const Header: React.FC = ()=> {
     const navItem = [
@@ -17,7 +19,7 @@ const Header: React.FC = ()=> {
 
     const { sticky, stickyRef } = useSticky();
 
-    const [active, setActive] = useState(false);
+    const active = useSelector((state: RootState) => state.navbar.isActive)
 
     return(
         <>
