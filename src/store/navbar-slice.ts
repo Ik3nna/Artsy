@@ -4,8 +4,11 @@ const navbarSlice = createSlice({
     name: "navbar",
     initialState: { isActive: false },
     reducers: {
-        showSidebar (state) {
+        toggleSidebar (state) {
             state.isActive = !state.isActive
+        },
+        hideSidebar (state) {
+            state.isActive = false
         }
     }
 })
