@@ -1,6 +1,7 @@
 import React from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./index.css";
+import Header from "./components/header";
 
 const App: React.FC =()=> {
 
@@ -8,6 +9,8 @@ const App: React.FC =()=> {
    <>
     <BrowserRouter>
 
+      <Header />
+      
       <Routes>
 
       </Routes>
