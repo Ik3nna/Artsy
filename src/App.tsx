@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./index.css";
 import Header from "./components/header";
 
+// pages
+import Home from "./pages/home";
+
 const App: React.FC =()=> {
 
   return (
@@ -12,7 +15,9 @@ const App: React.FC =()=> {
       <Header />
       
       <Routes>
+        <Route path="/home" element={<Home />} />
 
+        <Route path="/" element= {<Navigate replace to="/home" />} />
       </Routes>
 
     </BrowserRouter>

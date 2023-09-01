@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     max-width: 100%;
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 .header > img {
@@ -16,7 +16,7 @@ nav ul {
     align-items: center;
 }
 .header a {
-  font: var(--fontSatoshi);
+  font-family: var(--fontSatoshi);
   font-weight: 500;
   font-size: 24px;
   color: var(--heroTextColor) !important;
