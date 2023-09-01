@@ -29,3 +29,23 @@ nav ul {
     column-gap: 30px;
     margin-left: auto;
 }
+.activeLink {
+    border-bottom: 3px solid var(--heroTextColor);
+}
+
+
+/* fixed header */
+.fixedNav {
+    background: var(--fixedNav);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    padding-bottom: 20px;
+}
+.fixedNav .header {
+    background: var(--fixedNav);
+}
+.fixedNav a {
+    color: var(--bgColor);
+}

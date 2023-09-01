@@ -4,7 +4,7 @@ import useSticky from "./useSticky-hook";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { navbarActions } from "../../store/navbar-slice";
-import { RootState } from "../../store";
+// import { RootState } from "../../store";
 
 // assets
 import artsy from "../../assets/ARTSY..svg"
@@ -27,13 +27,13 @@ const Header: React.FC = ()=> {
 
     const { sticky, stickyRef } = useSticky();
 
-    const active = useSelector((state: RootState) => state.navbar.isActive);
+    // const active = useSelector((state: RootState) => state.navbar.isActive);
 
     const dispatch = useDispatch();
 
     return(
         <>
-            <header ref={stickyRef} className={`${active && styles.active} ${sticky && styles.fixedNav}`}>
+            <header ref={stickyRef} className={`${sticky && styles.fixedNav}`}>
                 <div className={styles.header}>
                     <img src={artsy} alt="logo" onClick={()=> window.location.reload()}  />
 
