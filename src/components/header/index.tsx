@@ -6,6 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { navbarActions } from "../../store/navbar-slice";
 import { RootState } from "../../store";
 
+// assets
+import artsy from "../../assets/ARTSY..svg"
+
+// icons
+import { BiSearch, BiCart } from "react-icons/bi";
+import { GrNotification } from "react-icons/gr"
+
 const Header: React.FC = ()=> {
     const navItem = [
         { id: 1, item: "Home", linkTo: "/home"},
@@ -28,6 +35,8 @@ const Header: React.FC = ()=> {
         <>
             <header ref={stickyRef} className={`${active && styles.active} ${sticky && styles.fixedNav}`}>
                 <div className={styles.header}>
+                    <img src={artsy} alt="logo" onClick={()=> window.location.reload()}  />
+
                     <nav>
                         <ul>
                             {navItem.map((navlink)=>
@@ -39,6 +48,14 @@ const Header: React.FC = ()=> {
                             )}
                         </ul>
                     </nav>
+
+                    <div className={styles.icons}>
+                        <BiSearch size={25} />
+
+                        <BiCart size={25} />
+
+                        <GrNotification size={25} />
+                    </div>
 
                     <div className="overlay"></div>
                         

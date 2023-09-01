@@ -21,8 +21,6 @@
 body, html {
   position: relative;
   overflow-x: hidden;
-  font-size: 14px;
-  line-height: 16px;
 }
 ul {
   list-style: none;

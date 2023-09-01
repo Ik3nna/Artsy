@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    width: 90%;
+    margin: auto;
+}
+.header > img {
+    width: 113px;
+    height: 90px;
+    margin-right: auto;
+}
+nav ul {
+    display: flex;
+    align-items: center;
+}
+.header a {
+  font: var(--fontSatoshi);
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--heroTextColor) !important;
+  margin-right: 30px;
+}
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    margin-left: auto;
+}
