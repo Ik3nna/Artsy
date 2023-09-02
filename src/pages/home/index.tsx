@@ -21,6 +21,8 @@ import ellispe17 from "../../assets/Ellipse 17.png";
 import ellipse16 from "../../assets/Ellipse 16.png";
 import ellipse15 from "../../assets/Ellipse 15.png";
 import ellipse14 from "../../assets/Ellipse 14.png";
+import rectangle91 from "../../assets/Rectangle 91.png";
+import loader from "../../assets/Loader.png"
 
 const Home: React.FC = () => {
   const images = [
@@ -184,6 +186,58 @@ const Home: React.FC = () => {
                     </div>
                 </article>
             </section>
+        </section>
+
+        <section className={styles.upcoming}>
+            <article className={styles.content}>
+                <h2>See Upcoming Auctions and Exhibitions</h2><hr />
+
+                <div className={styles.imageContainer}>
+                    <div className={styles.left}>
+                        <h4>01</h4>
+
+                        <div></div>
+
+                        <div>
+                            <h5>MONALISA REDIFINED <br /> IN STYLE.</h5>
+
+                            <p>Start on : 08:00 GTS . Monday </p>
+
+                            <p>GET EXCLUSIVE VIEWING OF CONTEMPORARY ART AND CONNECT 
+                                WITH INVESTORS AND AUCTIONEERS ACROSS THE WORLD BRINGING 
+                                THEIR HIGHEST AND LOWEST BIDS.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className={styles.right}>
+                        <Link to="/auctions">See more</Link>
+
+                        <Link to="/drop">Set a reminder</Link>
+                    </div>
+                </div>
+
+                <img src={loader} alt="loader" />
+            </article>
+        </section>
+
+        <section className={styles.linkContainer}>
+            <hr />
+            <article>
+                <div>Explore marketplace</div>
+
+                <Link to="/place">
+                    <BsArrowRight className={styles.links} />
+                </Link>
+            </article><hr />
+
+            <article>
+                <div>See auctions</div>
+
+                <Link to="/auctions">
+                    <BsArrowRight className={styles.links} />
+                </Link>
+            </article><hr />
         </section>
 
         <section>
