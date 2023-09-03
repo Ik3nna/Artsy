@@ -336,6 +336,7 @@
 /* Creators */
 .creators {
     background-color: var(--creatorsBackground);
+    overflow-y: hidden;
 }
 .creators article {
     max-width: 100%;
@@ -403,10 +404,10 @@
     width: 826px;
     float: right;
     position: absolute;
-    top: -80%;
     width: 826px;
+    top: -250%;
     left: 60%;
-    transform: translateX(-60%);
-    -webkit-transform: translateX(-60%);
-    -ms-transform: translateX(-60%);
+    transform: translate(-60%);
+    -webkit-transform: translate(-60%);
+    -ms-transform: translate(-60%);
 }
