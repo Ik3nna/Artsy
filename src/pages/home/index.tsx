@@ -1,6 +1,6 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from 'swiper/modules';
+import { SwiperSlide } from "swiper/react";
+import Slider from '../../components/slider';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import 'swiper/css/free-mode';
@@ -21,8 +21,8 @@ import ellispe17 from "../../assets/Ellipse 17.png";
 import ellipse16 from "../../assets/Ellipse 16.png";
 import ellipse15 from "../../assets/Ellipse 15.png";
 import ellipse14 from "../../assets/Ellipse 14.png";
-import rectangle91 from "../../assets/Rectangle 91.png";
-import loader from "../../assets/Loader.png"
+import loader from "../../assets/Loader.png";
+import loader2 from "../..//assets/Loader-2.png";
 
 const Home: React.FC = () => {
   const images = [
@@ -55,13 +55,13 @@ const Home: React.FC = () => {
                 Register to get top access.
             </p>
 
-            <Swiper slidesPerView={"auto"} freeMode={true} spaceBetween={10} modules={[FreeMode]} className={styles.mySwiper}>
+            <Slider className="mySwiper">
                 {images.map((image)=>(
                     <SwiperSlide key={image.id} className={`${styles[image.alt]}`}>
                         <img src={image.image} alt={image.alt} />
                     </SwiperSlide>
                 ))}
-            </Swiper>
+            </Slider>
         </section>
 
         <section className={styles.products}>
@@ -240,8 +240,53 @@ const Home: React.FC = () => {
             </article><hr />
         </section>
 
-        <section>
-            
+        <section className={styles.creators}>
+            <article>
+                <h2>TOP CREATORS OF <br />THE WEEK</h2>
+
+                <div>
+                    <img src={loader2} alt="loader" />
+
+                    <div>
+                        <div>Editorials</div>
+
+                        <div>Fashion</div>
+
+                        <div>Lifestyle</div>
+
+                        <div>Blueprint</div>
+                    </div>
+                </div>
+            </article>
+
+            <article>
+                <p>
+                    “Everything always looked better in black and white. 
+                    Everything always  as if it were the first time; there’s 
+                    always more people in a black and white photograph. 
+                    It just makes it seem that there were more people at a gig, more 
+                    people at a football match, than with colour photography. 
+                    Everything looks more exciting.”– Jack Lowden
+                </p>
+
+                <div className={styles.circa}>CIRCA</div>
+
+                <div className={styles.nmb}>1985</div>
+
+                {/* <Carousel fade indicators={false} controls={false} className={styles.carousel}>
+                    <Carousel.Item>
+                        <img src="/assets/slide-1.svg" alt="First slide" />
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img src="/assets/slide-2.svg" alt="Second slide" />
+                    </Carousel.Item>
+
+                    <Carousel.Item>
+                        <img src="/assets/slide-3.svg" alt="Third slide" />
+                    </Carousel.Item>
+                </Carousel> */}
+            </article>
         </section>
     </main>
   )

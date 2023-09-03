@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    row-gap: 100px;
 }
 .hero {
     color: var(--heroTextColor);
@@ -197,7 +198,6 @@
 .upcoming {
     background: linear-gradient(99.99deg, #4693ED -26.21%, #79C2D2 22.16%, rgba(192, 86, 9, 0.49) 111.62%);
     width: 100%;
-    margin-top: 100px;
     padding-bottom: 60px;
 }
 .upcoming .content {
@@ -288,7 +288,7 @@
     text-decoration: underline;
 }
 .right a:nth-of-type(2) {
-    border: 1px solid #FFFFFF;
+    border: 1px solid var(--bgColor);
     border-radius: 10px;
     padding: 10px 20px;
 }
@@ -301,9 +301,6 @@
 
 
 /* link */
-.linkContainer {
-    margin-top: 100px;
-}
 .linkContainer hr {
     border: 0.5px solid #333333;
 }
@@ -332,4 +329,83 @@
 }
 .linkContainer .links:hover {
     transform: scale(1.1);
+}
+
+
+
+/* Creators */
+.creators {
+    background-color: var(--creatorsBackground);
+    /* height: 922px; */
+}
+.creators article {
+    max-width: 100%;
+    width: 80%;
+    margin: auto;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.creators article:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 70px;
+    margin-bottom: 30px;
+}
+.creators h2 {
+    font-weight: 600;
+    font-size: 55px;
+    line-height: 86px;
+    color: var(--thickBlackColor);
+}
+.creators article:nth-of-type(1) > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.creators article:nth-of-type(1) > div img {
+    width: 10px;
+    height: 295.69px;
+}
+.creators article:nth-of-type(1) > div div div {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 62px;
+    color: var(--subTextColor);
+    margin-bottom: 20px;
+}
+.creators article:nth-of-type(1) > div div div:last-child {
+    margin-bottom: 0;
+}
+.creators article:nth-of-type(2) {
+    position: relative;
+}
+.creators article:nth-of-type(2) p {
+    font-weight: 200;
+    font-size: 32px;
+    line-height: 42px;
+    color: rgba(0, 0, 0, 0.57);
+}
+.creators article:nth-of-type(2) .circa {
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 75px;
+    color: var(--subTextColor);
+}
+.creators article:nth-of-type(2) .nmb {
+    float: right;
+    font-weight: 700;
+    font-size: 170px;
+    line-height: 264px;
+    text-decoration: line-through;
+}
+.carousel {
+    position: absolute;
+    top: -80%;
+    width: 826px;
+    left: 60%;
+    transform: translateX(-60%);
+    -webkit-transform: translateX(-60%);
+    -ms-transform: translateX(-60%);
 }
