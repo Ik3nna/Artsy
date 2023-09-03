@@ -1,10 +1,9 @@
 import React from 'react';
 import { SwiperSlide } from "swiper/react";
 import Slider from '../../components/slider';
+import Carousel from '../../components/carousel';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
-import 'swiper/css/free-mode';
-import "swiper/css";
 import styles from "./index.module.css";
 
 // images 
@@ -22,7 +21,10 @@ import ellipse16 from "../../assets/Ellipse 16.png";
 import ellipse15 from "../../assets/Ellipse 15.png";
 import ellipse14 from "../../assets/Ellipse 14.png";
 import loader from "../../assets/Loader.png";
-import loader2 from "../..//assets/Loader-2.png";
+import loader2 from "../../assets/Loader-2.png";
+import slide1 from "../../assets/slide-1.svg";
+import slide2 from "../../assets/slide-2.svg";
+import slide3 from "../../assets/slide-3.svg";
 
 const Home: React.FC = () => {
   const images = [
@@ -40,6 +42,12 @@ const Home: React.FC = () => {
     { id: 3, image: ellipse16, alt: "three" },
     { id: 4, image: ellipse15, alt: "four" },
     { id: 5, image: ellipse14, alt: "five" },
+  ]
+
+  const carouselImages = [
+    {id: 1, image: slide1, alt: "slide-one" },
+    {id: 2, image: slide2, alt: "slide-two" },
+    {id: 3, image: slide3, alt: "slide-three" },
   ]
 
   return (
@@ -273,19 +281,13 @@ const Home: React.FC = () => {
 
                 <div className={styles.nmb}>1985</div>
 
-                {/* <Carousel fade indicators={false} controls={false} className={styles.carousel}>
-                    <Carousel.Item>
-                        <img src="/assets/slide-1.svg" alt="First slide" />
-                    </Carousel.Item>
-
-                    <Carousel.Item>
-                        <img src="/assets/slide-2.svg" alt="Second slide" />
-                    </Carousel.Item>
-
-                    <Carousel.Item>
-                        <img src="/assets/slide-3.svg" alt="Third slide" />
-                    </Carousel.Item>
-                </Carousel> */}
+                <Carousel className="carousel">
+                    {carouselImages.map((image)=>(
+                        <SwiperSlide key={image.id}>
+                            <img src={image.image} alt={image.alt} />
+                        </SwiperSlide>
+                    ))}
+                </Carousel>
             </article>
         </section>
     </main>

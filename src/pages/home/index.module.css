@@ -336,7 +336,6 @@
 /* Creators */
 .creators {
     background-color: var(--creatorsBackground);
-    /* height: 922px; */
 }
 .creators article {
     max-width: 100%;
@@ -401,6 +400,8 @@
     text-decoration: line-through;
 }
 .carousel {
+    width: 826px;
+    float: right;
     position: absolute;
     top: -80%;
     width: 826px;
