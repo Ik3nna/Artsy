@@ -2,9 +2,8 @@ import React from "react";
 import styles from "./index.module.css";
 import useSticky from "./useSticky-hook";
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { navbarActions } from "../../store/navbar-slice";
-// import { RootState } from "../../store";
 
 // assets
 import artsy from "../../assets/ARTSY..svg"

@@ -337,6 +337,7 @@
 .creators {
     background-color: var(--creatorsBackground);
     overflow-y: hidden;
+    margin-bottom: 100px;
 }
 .creators article {
     max-width: 100%;

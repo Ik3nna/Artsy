@@ -29,7 +29,7 @@ nav ul {
     column-gap: 30px;
     margin-left: auto;
 }
-.activeLink {
+.activeLink, .header a:hover {
     border-bottom: 3px solid var(--heroTextColor);
 }
 

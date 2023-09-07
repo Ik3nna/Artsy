@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Noto+Sans:wght@400;500&family=Playfair+Display:wght@500;600&family=Poppins&family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville&family=Bellefair&family=Noto+Sans:wght@400;500&family=Playfair+Display:wght@500;600&family=Poppins&family=Rubik:wght@500&display=swap');
 
 *, ::after, ::before {
   margin: 0;
@@ -13,11 +13,13 @@
   --subTextColor: #616161;
   --thickBlackColor: #161616;
   --creatorsBackground: #E2E2E2;
+  --btnColor: #272727;
   --fontSatoshi: 'Noto Sans', sans-serif;
   --fontClashDisplay: 'Playfair Display', serif;
   --fontPoppins: 'Poppins', sans-serif;
   --fontBellefair: 'Bellefair', serif;
   --fontRubik: 'Rubik', sans-serif;
+  --fontBaskervville: 'Baskervville', serif;
 }
 body, html {
   position: relative;
