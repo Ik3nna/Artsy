@@ -75,7 +75,6 @@
     align-items: center;
 }
 .mn_footer .other_links > article div:nth-of-type(1) {
-    margin-top: 10px;
     margin-right: 10px;
 }
 .mn_footer .other_links a:hover {
@@ -84,4 +83,35 @@
 .copywright {
     text-align: center;
     margin-bottom: 10px;
+}
+
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    footer .newsletter p:nth-of-type(1) {
+        font-size: 22.2105px;
+        line-height: 29px;
+    }
+    footer .newsletter p:nth-of-type(2) {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    footer .newsletter p:nth-of-type(1) {
+        font-size: 16px;
+        line-height: 21px;
+    }
+    footer .newsletter p:nth-of-type(2) {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .mn_footer {
+        margin: 40px auto 20px;
+        font-size: 20px;
+        column-gap: 10px;
+    }
+    .mn_footer .other_links > article div:nth-of-type(1) {
+        margin-right: 5px;
+    }
 }

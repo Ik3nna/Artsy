@@ -9,7 +9,9 @@
 .header > img {
     width: 113px;
     height: 90px;
-    margin-right: auto;
+}
+.header nav {
+    margin-left: auto;
 }
 nav ul {
     display: flex;
@@ -21,6 +23,9 @@ nav ul {
   font-size: 24px;
   color: var(--heroTextColor) !important;
   margin-right: 30px;
+}
+.header li:last-child a {
+    margin-right: 0px;
 }
 .icons {
     display: flex;
@@ -48,4 +53,25 @@ nav ul {
 }
 .fixedNav a {
     color: var(--bgColor);
+}
+
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .header a {
+      margin-right: 25px;
+    }
+    .icons {
+        column-gap: 25px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .header a {
+      margin-right: 15px;
+      font-size: 20px;
+      line-height: 28px;
+    }
+    .icons {
+        column-gap: 15px;
+    }
 }
