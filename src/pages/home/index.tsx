@@ -25,6 +25,7 @@ import loader2 from "../../assets/Loader-2.png";
 import slide1 from "../../assets/slide-1.svg";
 import slide2 from "../../assets/slide-2.svg";
 import slide3 from "../../assets/slide-3.svg";
+import heroImg from "../../assets/hero-mobile.png";
 
 const Home: React.FC = () => {
   const images = [
@@ -70,6 +71,8 @@ const Home: React.FC = () => {
                     </SwiperSlide>
                 ))}
             </Slider>
+
+            <img src={heroImg} alt="hero" className={styles.mobile} />
         </section>
 
         <section className={styles.products}>
