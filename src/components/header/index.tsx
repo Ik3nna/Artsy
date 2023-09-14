@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import useSticky from "./useSticky-hook";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { navbarActions } from "../../store/navbar-slice";
 
 // assets
@@ -11,6 +11,7 @@ import artsy from "../../assets/ARTSY..svg"
 // icons
 import { BiSearch, BiCart } from "react-icons/bi";
 import { GrNotification } from "react-icons/gr"
+import { RootState } from "../../store";
 
 const Header: React.FC = ()=> {
     const navItem = [
@@ -26,15 +27,15 @@ const Header: React.FC = ()=> {
 
     const { sticky, stickyRef } = useSticky();
 
-    // const active = useSelector((state: RootState) => state.navbar.isActive);
+    const active = useSelector((state: RootState)=>state.navbar.isActive);
 
     const dispatch = useDispatch();
 
     return(
         <>
-            <header ref={stickyRef} className={`${sticky && styles.fixedNav}`}>
+            <header ref={stickyRef} className={`${active ? styles.active : ""} ${sticky && styles.fixedNav}`}>
                 <div className={styles.header}>
-                    <img src={artsy} alt="logo" onClick={()=> window.location.reload()}  />
+                    <img src={artsy} alt="logo" />
 
                     <nav>
                         <ul>
@@ -49,17 +50,17 @@ const Header: React.FC = ()=> {
                     </nav>
 
                     <div className={styles.icons}>
-                        <BiSearch size={25} />
+                        <BiSearch />
 
-                        <BiCart size={25} />
+                        <BiCart />
 
-                        <GrNotification size={25} />
+                        <GrNotification />
                     </div>
 
-                    <div className="overlay"></div>
+                    <div className={styles.overlay}></div>
                         
-                    <div className="hamburger-menu" onClick={()=>dispatch(navbarActions.toggleSidebar())}>
-                        <div className="bar"></div>
+                    <div className={styles.hamburger} onClick={()=>dispatch(navbarActions.toggleSidebar())}>
+                        <div className={styles.bar}></div>
                     </div>
                 </div>
             </header>
