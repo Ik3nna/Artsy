@@ -84,7 +84,7 @@ nav ul {
         width: 90%;
     }
     .header img {
-        width: 136px;
+        width: 130px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -133,9 +133,10 @@ nav ul {
     }
     .icons {
         margin-left: 0;
+        column-gap: 15px;
     }
     .icons svg {
-        font-size: 35px;
+        font-size: 30px;
     }
     .icons svg:nth-of-type(3) {
         display: none;

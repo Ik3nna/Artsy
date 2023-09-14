@@ -684,11 +684,15 @@
     .hero h1 {
         font-size: 55px;
         line-height: 85px;
+        max-width: 100%;
+        width: 90%;
         margin: 30px auto;
     }
     .hero p {
         font-size: 24px;
         line-height: 35px;
+        max-width: 100%;
+        width: 90%;
         margin-bottom: 30px;
     }
     .mySwiper {
@@ -775,5 +779,204 @@
     }
 }
 @media (max-width: 575px) {
+    .container {
+        row-gap: 40px;
+    }
+    .hero h1 {
+        font-size: 45px;
+        line-height: 75px;
+        margin: 30px auto;
+        max-width: 100%;
+        width: 90%;
+    }
+    .hero p {
+        font-size: 20px;
+        line-height: 30px;
+        max-width: 100%;
+        width: 90%;
+        margin-bottom: 30px;
+    }
+    .mySwiper {
+        display: none;
+    }
+    .mobile {
+        display: block;
+        max-width: 100%;
+        width: 90%;
+        margin: auto;
+    }
+    .products {
+        max-width: 100%;
+        width: 90%;
+    }
+    .products h2 {
+        font-size: 30px;
+        line-height: 156.7%; 
+    }
+    .products section {
+        flex-direction: column;
+    }
+    .products hr {
+        margin-top: 20px !important;
+    }
+    .imgLink, .products > section > article > img {
+        width: 100%;
+        margin: auto;
+    }
+    .products article > p {
+        width: 100%;
+        margin: 20px auto;
+    }
+    .products h3 {
+        width: 100%;
+        margin: 10px auto 0px auto;
+        font-size: 25px;
+    }
+    .products section:nth-of-type(2) {
+        flex-direction: column-reverse !important;
+    }
+    .products article > p {
+        width: 100%;
+        font-size: 16px;
+    }
+    .products .subContainer {
+        width: 100%;
+    }
+    .products .subContainer > p {
+        font-size: 16px;
+    }
+    .products .imgContainer {
+        width: 100px;
+    }
+    .imgContainer img {
+        max-width: 31px;
+        height: 31px;
+    }
+    .place {
+        width: 31px;
+        height: 31px;
+        margin-left: auto;
+    }
+    .upcoming .content {
+        width: 95%;
+        margin: 30px auto 0px;
+    }
+    .upcoming .content h2, .upcoming .content hr, .upcoming .content img {
+        display: none;
+    }
+    .left {
+        bottom: 25%;
+        column-gap: 5px;
+    }
+    .left div:nth-of-type(1) {
+        left: 30px;
+    }
+    .left div p:nth-of-type(2) {
+        width: 90%;
+        margin: 0;
+    }
+    .left div:nth-of-type(1) {
+        left: -18px;
+    }
+    .left h4 {
+        font-size: 40px;
+        line-height: 50px;
+        margin-left: -18px;
+    }
+    .left h5 {
+        font-size: 14;
+        line-height: 30px;
+    }
+    .left div p:nth-of-type(1) {
+        font-size: 12px;
+        line-height: 14px;
+        margin-bottom: 10px;
+    }
+    .left div p:nth-of-type(2) {
+        font-size: 10px;
+        line-height: 15px;
+        width: 100%;
+        margin: auto;
+    }
+    .right {
+        bottom: 5%;
+        right: 10px;
+    }
+    .right a {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .right a:nth-of-type(2) {
+        border: 1px solid var(--bgColor);
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
+    .linkContainer article {
+        max-width: 100%;
+        width: 90%;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .linkContainer .links {
+        font-size: 41px;
+    }   
+    .creators article {
+        max-width: 100%;
+        width: 90%;
+    }
+    .creators article:nth-of-type(1) {
+        padding-top: 50px;
+    }
+    .creators h2 {
+        font-size: 20px;
+        line-height: 40px;
+    }
+    .creators article:nth-of-type(1) > div, .creators article:nth-of-type(1) > div img {
+        display: none;
+    }
+    .creators article:nth-of-type(1) > div div div:last-child {
+        margin-bottom: 0;
+    }
+
+
+    .creators article:nth-of-type(2) {
+        position: relative;
+    }
+    .creators article:nth-of-type(2) p {
+        font-size: 13px;
+        line-height: 16.9px;
+    }
+
+
+
+
     
+
+    .creators article:nth-of-type(2) .circa {
+        position: absolute;
+        bottom: 20%;
+        right: 10%;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 75px;
+        color: var(--subTextColor);
+    }
+    .creators article:nth-of-type(2) .nmb {
+        font-size: 64px;
+        line-height: 99.52;
+    }
+
+
+
+
+    .carousel {
+        width: 826px;
+        float: right;
+        position: absolute;
+        top: -250%;
+        left: 60%;
+        transform: translate(-60%);
+        -webkit-transform: translate(-60%);
+        -ms-transform: translate(-60%);
+    }
 }
