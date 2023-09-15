@@ -16,7 +16,7 @@
     transform: scale(0.8);
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (max-width: 991px) {
     .btn {
         width: 150px;
         font-size: 12px;

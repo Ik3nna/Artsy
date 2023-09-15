@@ -391,7 +391,6 @@
     font-weight: 700;
     font-size: 48px;
     line-height: 75px;
-    color: var(--subTextColor);
 }
 .creators article:nth-of-type(2) .nmb {
     float: right;
@@ -920,6 +919,10 @@
     .linkContainer .links {
         font-size: 41px;
     }   
+    .creators {
+        height: 400px !important;
+        margin-bottom: 60px;
+    }
     .creators article {
         max-width: 100%;
         width: 90%;
@@ -937,8 +940,6 @@
     .creators article:nth-of-type(1) > div div div:last-child {
         margin-bottom: 0;
     }
-
-
     .creators article:nth-of-type(2) {
         position: relative;
     }
@@ -946,37 +947,22 @@
         font-size: 13px;
         line-height: 16.9px;
     }
-
-
-
-
-    
-
     .creators article:nth-of-type(2) .circa {
-        position: absolute;
         bottom: 20%;
         right: 10%;
-        font-weight: 700;
         font-size: 48px;
         line-height: 75px;
-        color: var(--subTextColor);
     }
     .creators article:nth-of-type(2) .nmb {
         font-size: 64px;
-        line-height: 99.52;
+        line-height: 70px;
     }
-
-
-
-
     .carousel {
-        width: 826px;
-        float: right;
-        position: absolute;
-        top: -250%;
-        left: 60%;
-        transform: translate(-60%);
-        -webkit-transform: translate(-60%);
-        -ms-transform: translate(-60%);
+        width: 100%;
+        top: -100%;
+        left: 20%;
+        transform: translate(-20%);
+        -webkit-transform: translate(-20%);
+        -ms-transform: translate(-20%);
     }
 }

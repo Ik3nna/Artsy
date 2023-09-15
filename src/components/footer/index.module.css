@@ -123,6 +123,7 @@
     .newsletter > div {
        flex-direction: column;
         column-gap: 20px;
+        padding-bottom: 30px;
     }
     .newsletter > div input {
         height: 60px;
@@ -139,6 +140,8 @@
     .mn_footer {
         width: 90%;
         margin-bottom: 30px;
+        font-size: 18px;
+        line-height: 24px;
     }
     .mn_footer img, .mn_footer ul {
         display: none;
