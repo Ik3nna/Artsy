@@ -12,16 +12,8 @@ import image3 from "../assets/Rectangle 232.svg";
 import image4 from "../assets/Rectangle 233.svg";
 import image5 from "../assets/Rectangle 234.svg";
 
-export interface DataProps {
-    id: number,
-    category: string,
-    artist: string,
-    price: string,
-    image: string,
-    info: {
-        [key: string]: string
-    }
-}
+// types
+import { DataProps } from "../types";
 
 export const Data: DataProps[] = [
     {
