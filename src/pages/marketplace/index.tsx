@@ -91,9 +91,7 @@ const Marketplace: React.FC = () => {
                             <div>{item.artist}</div>
                         </div>
                     ))
-                }
-
-                
+                }   
             </div>
         </article>
 
