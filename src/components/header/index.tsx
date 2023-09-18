@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./index.module.css";
 import useSticky from "./useSticky-hook";
 import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { navbarActions } from "../../store/navbar-slice";
 
 // assets
 import artsy from "../../assets/ARTSY..svg"
@@ -11,7 +9,6 @@ import artsy from "../../assets/ARTSY..svg"
 // icons
 import { BiSearch, BiCart } from "react-icons/bi";
 import { GrNotification } from "react-icons/gr"
-import { RootState } from "../../store";
 
 const Header: React.FC = ()=> {
     const navItem = [
@@ -27,9 +24,7 @@ const Header: React.FC = ()=> {
 
     const { sticky, stickyRef } = useSticky();
 
-    const active = useSelector((state: RootState)=>state.navbar.isActive);
-
-    const dispatch = useDispatch();
+    const [active, setActive] = useState(false);
 
     return(
         <>
@@ -41,7 +36,7 @@ const Header: React.FC = ()=> {
                         <ul>
                             {navItem.map((navlink)=>
                                 <li key={navlink.id}>
-                                    <NavLink className={navLinkClass} to={navlink.linkTo} onClick={()=> dispatch(navbarActions.hideSidebar())}>
+                                    <NavLink className={navLinkClass} to={navlink.linkTo} onClick={()=> setActive(!active)}>
                                         {navlink.item}
                                     </NavLink>
                                 </li>
@@ -59,7 +54,7 @@ const Header: React.FC = ()=> {
 
                     <div className={styles.overlay}></div>
                         
-                    <div className={styles.hamburger} onClick={()=>dispatch(navbarActions.toggleSidebar())}>
+                    <div className={styles.hamburger} onClick={()=> setActive(!active)}>
                         <div className={styles.bar}></div>
                     </div>
                 </div>
