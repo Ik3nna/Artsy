@@ -12,7 +12,18 @@ import image3 from "../assets/Rectangle 232.svg";
 import image4 from "../assets/Rectangle 233.svg";
 import image5 from "../assets/Rectangle 234.svg";
 
-export const Data = [
+export interface DataProps {
+    id: number,
+    category: string,
+    artist: string,
+    price: string,
+    image: string,
+    info: {
+        [key: string]: string
+    }
+}
+
+export const Data: DataProps[] = [
     {
         id: 1,
         category: "Editorials",
