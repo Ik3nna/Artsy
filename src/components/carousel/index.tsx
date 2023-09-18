@@ -7,12 +7,10 @@ import { Autoplay } from 'swiper/modules';
 // styles
 import homeStyles from "../../pages/home/index.module.css";
 
-interface CarouselProps {
-    children: React.ReactNode,
-    className?: any
-}
+// type
+import { SwiperProps } from '../../types';
 
-const Carousel = ({ children, className }: CarouselProps) => {
+const Carousel = ({ children, className }: SwiperProps) => {
   return (
     <Swiper
         spaceBetween={30}

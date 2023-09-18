@@ -304,4 +304,36 @@ export const Data: DataProps[] = [
             status: "Available"
         }
     },
+    {
+        id: 19,
+        category: "Nature",
+        artist: "The Lawmakers",
+        price: "$310.00",
+        image: lawmakersImg,
+        info: {
+            desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+            purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor 
+            rhoncus dolor pur`,
+            listings: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+            purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor 
+            rhoncus dolor pur`,
+            status: "Available"
+        }
+    },
+    {
+        id: 20,
+        category: "Editorials",
+        artist: "Veil",
+        price: "$150.00",
+        image: veilImg,
+        info: {
+            desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+            purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor 
+            rhoncus dolor pur`,
+            listings: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+            purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor 
+            rhoncus dolor pur`,
+            status: "Available"
+        }
+    },
 ]

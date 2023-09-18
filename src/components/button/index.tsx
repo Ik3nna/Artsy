@@ -2,10 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
 
-interface ButtonProps {
-  children: React.ReactNode;
-  linkTo?: string,
-}
+// type
+import { ButtonProps } from '../../types';
 
 const Button: React.FC<ButtonProps> = ({ children, linkTo }) => {
   return (

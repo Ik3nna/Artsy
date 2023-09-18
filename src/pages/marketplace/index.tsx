@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import styles from "./index.module.css";
 import { Data } from '../../utils/data';
 
@@ -22,6 +22,7 @@ const Marketplace: React.FC = () => {
   ];
 
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [showMore, setShowMore] = useState(false);
 
   const toggleCategory = (category: keyof State) => {
     dispatch({ type: 'TOGGLE_CATEGORY', category });
@@ -91,12 +92,30 @@ const Marketplace: React.FC = () => {
                         </div>
                     ))
                 }
+
+                
             </div>
         </article>
 
         <article>
             <div className={styles.viewbox}>
-                See 1-9 of {Data.length} results
+                See 1-6 of {Data.length} results
+            </div>
+
+            <div className={styles.products}>
+                {
+                    Data.map((item)=>(
+                        <div key={item.id} className={styles.box_container}>
+                            <img src={item.image} alt={item.artist} />
+                            <div>{item.artist}</div>
+                            <div>{item.price}</div>
+                        </div>
+                    )).slice(0, showMore ? Data.length : 8)
+                }
+            </div>
+
+            <div className={styles.btn} onClick={()=>setShowMore(!showMore)}>
+                {showMore ? "Show less" : "Show more"}
             </div>
         </article>
     </section>

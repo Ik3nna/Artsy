@@ -1,4 +1,3 @@
-import React from 'react';
 import { Swiper } from "swiper/react";
 import { FreeMode } from 'swiper/modules';
 import 'swiper/css/free-mode';
@@ -7,12 +6,10 @@ import "swiper/css";
 // styles
 import homeStyles from "../../pages/home/index.module.css"
 
-interface SliderProps {
-    children: React.ReactNode,
-    className?: any
-}
+// type
+import { SwiperProps } from '../../types';
 
-const Slider = ({ children, className }: SliderProps)=> {
+const Slider = ({ children, className }: SwiperProps)=> {
     return(
         <Swiper 
             slidesPerView={"auto"} 

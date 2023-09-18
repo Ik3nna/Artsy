@@ -1,7 +1,6 @@
 .btn {
     font-weight: 400;
     font-family: var(--fontBaskervville);
-    color: var(--bgColor);
     background-color: var(--btnColor);
     color: var(--bgColor);
     font-size: 16px;

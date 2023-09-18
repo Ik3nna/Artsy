@@ -2,7 +2,7 @@ import React from 'react';
 import {  NavLink } from "react-router-dom";
 import { BsEnvelope } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
-import Button from '../black-button';
+import Button from '../button';
 import styles from "./index.module.css";
 
 // assets

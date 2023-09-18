@@ -1,4 +1,4 @@
-// checkbox types
+// checkbox type
 export type State = {
     category1: boolean;
     category2: boolean;
@@ -17,5 +17,17 @@ export type DataProps = {
     info: {
         [key: string]: string
     }
+}
+
+// Button type
+export type ButtonProps = {
+    children: React.ReactNode;
+    linkTo?: string,
+}
+
+// carousel type
+export type SwiperProps = {
+    children: React.ReactNode,
+    className?: any
 }
 
