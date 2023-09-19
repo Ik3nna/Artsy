@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import styles from "./index.module.css";
 import { Data } from '../../utils/data';
 
@@ -13,26 +13,57 @@ import { BiSearch } from "react-icons/bi";
 import { State, Action, DataProps } from '../../types';
 
 const Marketplace: React.FC = () => {
-  const priceRange = [
-    { id: 1, price: "All" },
-    { id: 2, price: "Below $100.00" },
-    { id: 3, price: "$100.00 - $150.00" },
-    { id: 4, price: "$150.00 - $200.00" },
-    { id: 5, price: "Above $200.00" }
-  ];
+    const priceRange = [
+        { id: 1, price: "All" },
+        { id: 2, price: "Below $100.00" },
+        { id: 3, price: "$100.00 - $150.00" },
+        { id: 4, price: "$150.00 - $200.00" },
+        { id: 5, price: "Above $200.00" }
+    ];
 
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const [showMore, setShowMore] = useState(false);
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const [inputValue, setInputValue] = useState("");
+    const [showMore, setShowMore] = useState(false);
+    const [openSearch, setOpenSearch] = useState(false);
+    const [data, setData] = useState(Data);
 
-  const toggleCategory = (category: keyof State) => {
-    dispatch({ type: 'TOGGLE_CATEGORY', category });
-  };
+    const toggleCategory = (category: keyof State) => {
+        dispatch({ type: 'TOGGLE_CATEGORY', category });
+    };
+
+    const handleSearch = (input: string)=> {
+        const searched = data.filter((item) =>
+            // item.category.toLowerCase().includes(input.toLowerCase()) ||
+            item.artist.toLowerCase().includes(input.toLowerCase())
+        );
+        setData(searched);
+        setOpenSearch(true);
+        setShowMore(true);
+    }
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const query = e.target.value
+        setInputValue(query);
+        handleSearch(query);
+    }
+
+    useEffect(() => {
+        if (inputValue.trim() === '') {
+          setData(Data);
+          setOpenSearch(false);
+          setShowMore(false);
+        }
+    }, [inputValue]);
 
   return (
     <section className={styles.container}>
         <article>
             <div className={styles.search}>
-                <input type='text' placeholder="Search" />
+                <input type='text' 
+                    placeholder="Search" 
+                    value={inputValue} 
+                    onChange={handleInputChange}  
+                />
                 <BiSearch className={styles.search_icon} />
             </div>
 
@@ -97,24 +128,26 @@ const Marketplace: React.FC = () => {
 
         <article>
             <div className={styles.viewbox}>
-                See 1-6 of {Data.length} results
+                See 1-{showMore ? data.length : 8} of {data.length} results
             </div>
 
             <div className={styles.products}>
                 {
-                    Data.map((item)=>(
+                    data.map((item)=>(
                         <div key={item.id} className={styles.box_container}>
                             <img src={item.image} alt={item.artist} />
                             <div>{item.artist}</div>
                             <div>{item.price}</div>
                         </div>
-                    )).slice(0, showMore ? Data.length : 8)
+                    )).slice(0, showMore ? data.length : 8)
                 }
             </div>
 
-            <div className={styles.btn} onClick={()=>setShowMore(!showMore)}>
-                {showMore ? "Show less" : "Show more"}
-            </div>
+            {!openSearch &&
+                <div className={styles.btn} onClick={()=>setShowMore(!showMore)}>
+                    {showMore ? "Show less" : "Show more"}
+                </div>
+            }
         </article>
     </section>
   )
