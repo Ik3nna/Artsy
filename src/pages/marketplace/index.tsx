@@ -64,9 +64,9 @@ const Marketplace: React.FC = () => {
 
         if (price === "All") {
             setData(Data)
-            setOpenSearch(false)
+            setOpenSearch(false);
+            setAllCategoriesSelected(false);
             setShowMore(false);
-            setShowMore(!allCategoriesSelected); 
         } else {
             const filteredData = Data.filter((item)=>{
                 const itemPrice = parseFloat(item.price.replace("$",""));
@@ -119,7 +119,13 @@ const Marketplace: React.FC = () => {
 
     useEffect(() => {
         setAllCategoriesSelected(checkedCategories.length === 0);
-    }, [checkedCategories]);
+        
+        if (checkedCategories.length === 0 && selectedPrice === "All") {
+            setAllCategoriesSelected(false);
+            setOpenSearch(false);
+            setShowMore(false)
+        }
+    }, [checkedCategories, selectedPrice, allCategoriesSelected]);
 
   return (
     <section className={styles.container}>
