@@ -21,12 +21,14 @@ const Marketplace: React.FC = () => {
         { id: 5, price: "Above $200.00" }
     ];
 
+    const [data, setData] = useState(Data);
     const [state, dispatch] = useReducer(reducer, initialState);
     const [inputValue, setInputValue] = useState("");
-    const [showMore, setShowMore] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
+    const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
+    const [allCategoriesSelected, setAllCategoriesSelected] = useState(true);
     const [selectedPrice, setSelectedPrice] = useState("All");
-    const [data, setData] = useState(Data);
+    const [showMore, setShowMore] = useState(false);
 
     const toggleCategory = (category: keyof State) => {
         dispatch({ type: 'TOGGLE_CATEGORY', category });
@@ -34,18 +36,27 @@ const Marketplace: React.FC = () => {
 
     const handleSearch = (input: string)=> {
         const searched = data.filter((item) =>
-            // item.category.toLowerCase().includes(input.toLowerCase()) ||
             item.artist.toLowerCase().includes(input.toLowerCase())
         );
         setData(searched);
         setOpenSearch(true);
         setShowMore(true);
-    }
+    }      
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value
         setInputValue(query);
         handleSearch(query);
+    }
+
+    const handleCategoryToggle = (category: string) => {
+        if (checkedCategories.includes(category)) {
+            setCheckedCategories(checkedCategories.filter((item)=> item !== category))
+        } else {
+            setCheckedCategories([...checkedCategories, category]);
+            setShowMore(true);
+            setOpenSearch(true);
+        }
     }
 
     const handlePriceClick = (price: string) => {
@@ -55,6 +66,7 @@ const Marketplace: React.FC = () => {
             setData(Data)
             setOpenSearch(false)
             setShowMore(false);
+            setShowMore(!allCategoriesSelected); 
         } else {
             const filteredData = Data.filter((item)=>{
                 const itemPrice = parseFloat(item.price.replace("$",""));
@@ -72,15 +84,42 @@ const Marketplace: React.FC = () => {
             setOpenSearch(true);
             setShowMore(true);
         }
-    }
+    }      
+
+    const calculateVisibleItemCount = () => {
+        return data.filter((item) => {
+          const categoryMatches = checkedCategories.length === 0 || checkedCategories.includes(item.category);
+          const priceMatches = selectedPrice === "All" || 
+            (selectedPrice === "Below $100.00" && parseFloat(item.price.replace("$", "")) < 100) ||
+            (selectedPrice === "$100.00 - $150.00" && parseFloat(item.price.replace("$", "")) >= 100 && parseFloat(item.price.replace("$", "")) <= 150) ||
+            (selectedPrice === "$150.00 - $200.00" && parseFloat(item.price.replace("$", "")) >= 150 && parseFloat(item.price.replace("$", "")) <= 200) ||
+            (selectedPrice === "Above $200.00" && parseFloat(item.price.replace("$", "")) > 200);
+          return categoryMatches && priceMatches;
+        }).length;
+    };
 
     useEffect(() => {
-        if (inputValue.trim() === '') {
-          setData(Data);
-          setOpenSearch(false);
-          setShowMore(false);
-        }
-    }, [inputValue]);
+        const filteredData = Data.filter((item) => {
+          const categoryMatches = checkedCategories.length === 0 || checkedCategories.includes(item.category);
+          const priceMatches = selectedPrice === "All" || 
+            (selectedPrice === "Below $100.00" && parseFloat(item.price.replace("$", "")) < 100) ||
+            (selectedPrice === "$100.00 - $150.00" && parseFloat(item.price.replace("$", "")) >= 100 && parseFloat(item.price.replace("$", "")) <= 150) ||
+            (selectedPrice === "$150.00 - $200.00" && parseFloat(item.price.replace("$", "")) >= 150 && parseFloat(item.price.replace("$", "")) <= 200) ||
+            (selectedPrice === "Above $200.00" && parseFloat(item.price.replace("$", "")) > 200);
+          const inputMatches = inputValue.trim() === '' || 
+            item.artist.toLowerCase().includes(inputValue.toLowerCase());
+      
+          return categoryMatches && priceMatches && inputMatches;
+        });
+      
+        setData(filteredData);
+        setOpenSearch(true);
+        setShowMore(true);
+    }, [inputValue, selectedPrice, checkedCategories]);
+
+    useEffect(() => {
+        setAllCategoriesSelected(checkedCategories.length === 0);
+    }, [checkedCategories]);
 
   return (
     <section className={styles.container}>
@@ -110,7 +149,7 @@ const Marketplace: React.FC = () => {
                 {state.category1 &&
                     Data.slice(0, 5).map((item: DataProps)=>(
                         <div key={item.id} className={styles.categories}>
-                            <input type='checkbox' />
+                            <input type='checkbox' checked={checkedCategories.includes(item.category)} onChange={()=>handleCategoryToggle(item.category)} />
                             <div>{item.category}</div>
                         </div>
                     ))
@@ -137,12 +176,12 @@ const Marketplace: React.FC = () => {
 
         <article>
             <div className={styles.viewbox}>
-                See 1-{showMore ? data.length : 8} of {data.length} results
+                See {calculateVisibleItemCount() === 0 ? "0" : "1"}-{showMore ? calculateVisibleItemCount() : 8} of {calculateVisibleItemCount()} results
             </div>
 
             <div className={styles.products}>
                 {
-                    data.map((item)=>(
+                    data.filter((item)=>checkedCategories.length === 0 || checkedCategories.includes(item.category)).map((item)=>(
                         <div key={item.id} className={styles.box_container}>
                             <img src={item.image} alt={item.artist} />
                             <div>{item.artist}</div>
