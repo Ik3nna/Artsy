@@ -25,6 +25,7 @@ const Marketplace: React.FC = () => {
     const [inputValue, setInputValue] = useState("");
     const [showMore, setShowMore] = useState(false);
     const [openSearch, setOpenSearch] = useState(false);
+    const [selectedPrice, setSelectedPrice] = useState("All");
     const [data, setData] = useState(Data);
 
     const toggleCategory = (category: keyof State) => {
@@ -45,6 +46,32 @@ const Marketplace: React.FC = () => {
         const query = e.target.value
         setInputValue(query);
         handleSearch(query);
+    }
+
+    const handlePriceClick = (price: string) => {
+        setSelectedPrice(price);
+
+        if (price === "All") {
+            setData(Data)
+            setOpenSearch(false)
+            setShowMore(false);
+        } else {
+            const filteredData = Data.filter((item)=>{
+                const itemPrice = parseFloat(item.price.replace("$",""));
+                if (price === "Below $100.00") {
+                    return itemPrice < 100
+                } else if (price === "$100.00 - $150.00") {
+                    return itemPrice >= 100 && itemPrice <= 150
+                } else if (price === "$150.00 - $200.00") {
+                    return itemPrice >= 150 && itemPrice <= 200
+                } else {
+                    return itemPrice > 200;
+                }
+            });
+            setData(filteredData);
+            setOpenSearch(true);
+            setShowMore(true);
+        }
     }
 
     useEffect(() => {
@@ -100,29 +127,11 @@ const Marketplace: React.FC = () => {
 
                 {state.category2 &&
                     priceRange.map((item)=>(
-                        <div key={item.id} className={styles.prices}>
+                        <div key={item.id} className={`${styles.prices} ${ selectedPrice === item.price && styles.selected}`} onClick={()=>handlePriceClick(item.price)}>
                             {item.price}
                         </div>
                     ))
                 }
-            </div>
-
-            <div className={styles.artist_filter}>
-                <div>
-                    <div>By artist</div>
-                    <div onClick={() => toggleCategory('category3')}>
-                        {state.category3 ? <IoIosArrowDown /> : <IoIosArrowUp />}
-                    </div>
-                </div>
-
-                {state.category3 &&
-                    Data.slice(0, 9).map((item: DataProps)=>(
-                        <div key={item.id} className={styles.artists}>
-                            <input type='checkbox' />
-                            <div>{item.artist}</div>
-                        </div>
-                    ))
-                }   
             </div>
         </article>
 

@@ -1,7 +1,7 @@
 .container {
     max-width: 100%;
     width: 80%;
-    margin: 70px auto 0px;
+    margin: 70px auto 100px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -50,26 +50,31 @@
     width: 30px;
     height: 30px;
 }
-.category_filter div, .price_filter div, .artist_filter div {
+.category_filter div, .price_filter div {
     display: flex;
     align-items: center;
     column-gap: 10px;
 }
-.category_filter div:nth-of-type(1), .price_filter div:nth-of-type(1), .artist_filter div:nth-of-type(1) {
+.category_filter div:nth-of-type(1), .price_filter div:nth-of-type(1) {
     width: 250px;
 }
-.category_filter div:nth-of-type(1) > div, .price_filter div:nth-of-type(1) > div, .artist_filter div:nth-of-type(1) > div {
+.category_filter div:nth-of-type(1) > div, .price_filter div:nth-of-type(1) > div {
     font-size: 20px;
     font-weight: 500;
     line-height: 40.128px;
     width: 100%;
 }
-.categories, .prices, .artists {
+.categories, .prices {
     margin: 10px auto;
     color: var(--heroTextColor);
 }
 .prices {
     cursor: pointer;
+}
+.selected {
+    border-bottom: 2px solid var(--mainTextColor);
+    width: fit-content;
+    margin-left: 0;
 }
 
 
@@ -124,7 +129,7 @@
     border-radius: 8px;
 }
 .btn {
-    margin: 20px auto 100px !important;
+    margin: 20px auto !important;
     border: 1px solid var(--mainTextColor);
     font-weight: 500;
     border-radius: 10px;
