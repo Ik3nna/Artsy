@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect, useRef } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import styles from "./index.module.css";
 import { Data } from '../../utils/data';
 
@@ -29,7 +29,6 @@ const Marketplace: React.FC = () => {
     const [allCategoriesSelected, setAllCategoriesSelected] = useState(true);
     const [selectedPrice, setSelectedPrice] = useState("All");
     const [showDropdown, setShowDropdown] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement | null>(null);
     const [showMore, setShowMore] = useState(false);
 
     const toggleCategory = (category: keyof State) => {
@@ -136,19 +135,6 @@ const Marketplace: React.FC = () => {
         }
     }, [checkedCategories, selectedPrice, allCategoriesSelected]);
 
-    useEffect(() => {
-        function handleClickOutside(event: MouseEvent) {
-          if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-            setShowDropdown(false);
-          }
-        }
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-          document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-
   return (
     <section className={styles.container}>
         <article>
@@ -166,7 +152,7 @@ const Marketplace: React.FC = () => {
                 <div>Filter</div>
             </div>
 
-            <div className={`${styles.category_filter} ${showDropdown && styles.active_category_filter}`} ref={dropdownRef}>
+            <div className={`${styles.category_filter} ${showDropdown && styles.active_category_filter}`}>
                 <div>
                     <div>By category</div>
                     {!showDropdown &&
@@ -186,7 +172,7 @@ const Marketplace: React.FC = () => {
                 }
             </div>
             
-            <div className={`${styles.price_filter} ${showDropdown && styles.active_price_filter}`} ref={dropdownRef}>
+            <div className={`${styles.price_filter} ${showDropdown && styles.active_price_filter}`}>
                 <div>
                     <div>By price</div>
                     {!showDropdown &&
