@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, { useReducer, useState, useEffect, useRef } from 'react';
 import styles from "./index.module.css";
 import { Data } from '../../utils/data';
 
@@ -28,6 +28,8 @@ const Marketplace: React.FC = () => {
     const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
     const [allCategoriesSelected, setAllCategoriesSelected] = useState(true);
     const [selectedPrice, setSelectedPrice] = useState("All");
+    const [showDropdown, setShowDropdown] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
     const [showMore, setShowMore] = useState(false);
 
     const toggleCategory = (category: keyof State) => {
@@ -118,6 +120,13 @@ const Marketplace: React.FC = () => {
     }, [inputValue, selectedPrice, checkedCategories]);
 
     useEffect(() => {
+        if (inputValue.trim() === '' ) {
+            setShowMore(false)
+            setOpenSearch(false);
+        }
+    }, [inputValue]);
+
+    useEffect(() => {
         setAllCategoriesSelected(checkedCategories.length === 0);
         
         if (checkedCategories.length === 0 && selectedPrice === "All") {
@@ -126,6 +135,19 @@ const Marketplace: React.FC = () => {
             setShowMore(false)
         }
     }, [checkedCategories, selectedPrice, allCategoriesSelected]);
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            setShowDropdown(false);
+          }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+          document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
   return (
     <section className={styles.container}>
@@ -144,12 +166,14 @@ const Marketplace: React.FC = () => {
                 <div>Filter</div>
             </div>
 
-            <div className={styles.category_filter}>
+            <div className={`${styles.category_filter} ${showDropdown && styles.active_category_filter}`} ref={dropdownRef}>
                 <div>
                     <div>By category</div>
-                    <div onClick={() => toggleCategory('category1')}>
-                        {state.category1 ? <IoIosArrowDown /> : <IoIosArrowUp />}
-                    </div>
+                    {!showDropdown &&
+                        <div onClick={() => toggleCategory('category1')}>
+                            {state.category1 ? <IoIosArrowDown /> : <IoIosArrowUp />}
+                        </div>
+                    }
                 </div>
 
                 {state.category1 &&
@@ -162,12 +186,14 @@ const Marketplace: React.FC = () => {
                 }
             </div>
             
-            <div className={styles.price_filter}>
+            <div className={`${styles.price_filter} ${showDropdown && styles.active_price_filter}`} ref={dropdownRef}>
                 <div>
                     <div>By price</div>
-                    <div onClick={() => toggleCategory('category2')}>
-                        {state.category2 ? <IoIosArrowDown /> : <IoIosArrowUp />}
-                    </div>
+                    {!showDropdown &&
+                        <div onClick={() => toggleCategory('category2')}>
+                            {state.category2 ? <IoIosArrowDown /> : <IoIosArrowUp />}
+                        </div>
+                    }
                 </div>
 
                 {state.category2 &&
@@ -182,6 +208,9 @@ const Marketplace: React.FC = () => {
 
         <article>
             <div className={styles.viewbox}>
+                <span onClick={()=>setShowDropdown(!showDropdown)}>
+                    Filters
+                </span>
                 See {calculateVisibleItemCount() === 0 ? "0" : "1"}-{showMore ? calculateVisibleItemCount() : 8} of {calculateVisibleItemCount()} results
             </div>
 
