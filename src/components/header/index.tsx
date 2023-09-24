@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
 import useSticky from "./useSticky-hook";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // assets
 import artsy from "../../assets/ARTSY..svg"
