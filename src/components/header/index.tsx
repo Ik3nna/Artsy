@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./index.module.css";
 import useSticky from "./useSticky-hook";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 // assets
 import artsy from "../../assets/ARTSY..svg"
@@ -22,6 +22,12 @@ const Header: React.FC = ()=> {
         return `${isActive ? styles.activeLink : ""}`;
     };
 
+    const navigateToHomePage = () => {
+        const homePageURL = '/home'; 
+    
+        window.location.href = homePageURL;
+    };
+
     const { sticky, stickyRef } = useSticky();
 
     const [active, setActive] = useState(false);
@@ -30,7 +36,7 @@ const Header: React.FC = ()=> {
         <>
             <header ref={stickyRef} className={`${active ? styles.active : ""} ${sticky && styles.fixedNav}`}>
                 <div className={styles.header}>
-                    <img src={artsy} alt="logo" />
+                    <img src={artsy} alt="logo" onClick={navigateToHomePage} />
 
                     <nav>
                         <ul>
