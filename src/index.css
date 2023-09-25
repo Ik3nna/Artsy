@@ -32,9 +32,12 @@ ul {
 a {
   text-decoration: none;
 }
-img, svg {
+img {
   cursor: pointer;
   width: 100%;
+}
+svg {
+  cursor: pointer;
 }
 button {
   border: none;

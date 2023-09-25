@@ -4,7 +4,8 @@ import 'swiper/css/free-mode';
 import "swiper/css";
 
 // styles
-import homeStyles from "../../pages/home/index.module.css"
+import homeStyles from "../../pages/home/index.module.css";
+import marketplaceStyles from "../../pages/marketplace/id/index.module.css";
 
 // type
 import { SwiperProps } from '../../types';
@@ -18,6 +19,7 @@ const Slider = ({ children, className }: SwiperProps)=> {
             modules={[FreeMode]} 
             className={`
                 ${homeStyles[className]}
+                ${marketplaceStyles[className]}
             `}
         >
             {children}
