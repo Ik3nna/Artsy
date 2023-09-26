@@ -6,11 +6,15 @@ import Button from '../../../components/button';
 import { State, Action } from "../../../types";
 import Slider from '../../../components/slider';
 import { SwiperSlide } from "swiper/react";
+import { ItemsListProps } from '../../../types';
 
 // icons
 import { BsArrowLeft } from "react-icons/bs";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { useSelector, useDispatch } from 'react-redux';
+import { cartActions } from '../../../store/cart-slice';
+import { RootState } from '../../../store';
 
 // assets
 import image1 from "../../../assets/Rectangle 230.svg";
@@ -25,6 +29,35 @@ const MarketplaceId: React.FC = () => {
   const [showLove, setShowLove] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const reduxDispatch = useDispatch();
+  const quantity = useSelector((state:RootState) => state.cart.quantity);
+
+  const handleIncrement = ()=> {
+    reduxDispatch(cartActions.increment());
+  }
+
+  const handleDecrement = ()=> {
+    reduxDispatch(cartActions.decrement());
+  }
+
+  const handleAddToCart = ()=>{
+    if (id !== undefined) {
+      const findItem = Data.find((item)=>item.id == parseInt(id, 10));
+
+      if (quantity > 0 && findItem) {
+        const item = {
+          id: findItem.id,
+          category: findItem.category,
+          artist: findItem.artist,
+          price: findItem.price,
+          image: findItem.image,
+          quantity: quantity
+        }
+        reduxDispatch(cartActions.addToCart(item))
+      }
+    }
+  }
 
   const toggleCategory = (category: keyof State) => {
     dispatch({ type: 'TOGGLE_CATEGORY', category });
@@ -41,7 +74,7 @@ const MarketplaceId: React.FC = () => {
 
   if (id !== undefined) {
     const findItem = Data.find((item)=>item.id == parseInt(id, 10));
-   
+ 
     return (
       <section className={styles.container}>
         <article>
@@ -70,13 +103,13 @@ const MarketplaceId: React.FC = () => {
               <p>Total views: 1.7k views</p>
 
               <div>
-                <div>-</div>
-                <div>1</div> 
-                <div>+</div>
+                <div onClick={handleDecrement}>-</div>
+                <div>{quantity}</div> 
+                <div onClick={handleIncrement}>+</div>
               </div>
 
               <div>
-                <Button linkTo="/marketplace/checkout" onClick={()=>console.log(findItem)}>
+                <Button linkTo={quantity > 0 ? "/marketplace/checkout" : "#"} onClick={()=>handleAddToCart()}>
                   Add to cart
                 </Button>
 

@@ -32,3 +32,14 @@ export type SwiperProps = {
     className?: any
 }
 
+
+// cart itemsList type
+export type ItemsListProps = {
+    id: number,
+    category: string,
+    artist: string,
+    price: string,
+    image: string,
+    quantity: number
+}
+
