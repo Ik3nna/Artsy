@@ -76,7 +76,7 @@ const MarketplaceId: React.FC = () => {
               </div>
 
               <div>
-                <Button>
+                <Button linkTo="/marketplace/checkout" onClick={()=>console.log(findItem)}>
                   Add to cart
                 </Button>
 

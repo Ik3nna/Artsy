@@ -53,7 +53,7 @@ const Header: React.FC = ()=> {
                     <div className={styles.icons}>
                         <BiSearch />
 
-                        <BiCart />
+                        <BiCart onClick={()=>window.location.href="/marketplace/checkout"} />
 
                         <GrNotification />
                     </div>

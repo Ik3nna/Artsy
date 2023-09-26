@@ -8,6 +8,7 @@ import Footer from "./components/footer";
 import Home from "./pages/home";
 import Marketplace from "./pages/marketplace";
 import MarketplaceId from "./pages/marketplace/id";
+import Checkout from "./pages/marketplace/checkout";
 
 const App: React.FC =()=> {
 
@@ -20,7 +21,7 @@ const App: React.FC =()=> {
         <Route path="/home" element={<Home />} />
         <Route path="/marketplace" element={<Marketplace />} />
         <Route path="/marketplace/:id" element={<MarketplaceId />} />
-
+        <Route path="/marketplace/checkout" element={<Checkout /> } />
         <Route path="/" element= {<Navigate replace to="/home" />} />
       </Routes>
 
