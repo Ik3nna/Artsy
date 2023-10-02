@@ -153,13 +153,6 @@
         font-size: 18px;
         line-height: 22px;
     }
-    .subContainer_desc > div:nth-of-type(2) > div  {
-        display: flex;
-        align-items: center;
-        column-gap: 20px;
-        cursor: pointer;
-        margin-bottom: 30px;
-    }  
 }
 @media (min-width: 768px) and (max-width: 991px) {
     .subContainer img {
@@ -183,13 +176,6 @@
         font-size: 16px;
         line-height: 20px;
     }
-    .subContainer_desc > div:nth-of-type(2) > div  {
-        display: flex;
-        align-items: center;
-        column-gap: 20px;
-        cursor: pointer;
-        margin-bottom: 30px;
-    }  
     .viewbox {
         font-size: 18px;
     }
@@ -257,10 +243,6 @@
     .subContainer_desc > div:nth-of-type(4),
     .subContainer_desc > div:nth-of-type(5) {
         font-size: 18px;
-        line-height: 24px;
-    }  
-    .subContainer_desc > div:nth-of-type(2) > div  {
-        font-size: 20px;
         line-height: 24px;
     }  
     .heart:hover {

@@ -23,6 +23,7 @@ export type DataProps = {
 export type ButtonProps = {
     children: React.ReactNode;
     linkTo?: string,
+    className?: any,
     onClick?: ()=> void
 }
 
