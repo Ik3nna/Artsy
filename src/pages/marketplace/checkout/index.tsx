@@ -5,7 +5,6 @@ import styles from "./index.module.css";
 import CartItems from '../../../components/cart-items';
 
 // icons
-import { ImCancelCircle } from "react-icons/im"
 import Button from '../../../components/button';
 import { Link } from 'react-router-dom';
 
@@ -21,7 +20,7 @@ const Checkout: React.FC = () => {
     <section className={styles.container}>
       <article className={styles.tabs}>
         <div className={`${selectedTab === 0 && styles.active}`} onClick={()=>handleTabClick(0)}>Shopping cart</div>
-        <div className={`${selectedTab === 1 && styles.active}`} onClick={()=>handleTabClick(1)}>Shopping details</div>
+        <div className={`${selectedTab === 1 && styles.active}`} onClick={()=>handleTabClick(1)}>Shipping details</div>
         <div className={`${selectedTab === 2 && styles.active}`} onClick={()=>handleTabClick(2)}>Payment details</div>
       </article><hr />
 
@@ -44,10 +43,23 @@ const Checkout: React.FC = () => {
         </>
       }
 
-      {/* {selectedTab === 1 && 
-        <>
-        </>
-      } */}
+      {selectedTab === 1 && 
+        <section className={styles.shipping}>
+          <article className={styles.shipping_container}>
+            <div></div>
+            <CartItems />
+          </article>
+
+          <div className={styles.price_details}>
+            <div>Products in cart: <div>{totalQuantity} items</div></div>
+            <div>Shipping: <div>$2.50</div></div>
+            <div>Total: <div>Total price</div></div>
+          </div>
+
+       
+          <Button linkTo="#" className="btn" onClick={()=>setSelectedTab(2)}>Proceed to payment</Button>
+        </section>
+      }
     </section>
   )
 }

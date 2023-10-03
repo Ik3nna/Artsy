@@ -6,7 +6,7 @@ import Button from '../../../components/button';
 import { State, Action } from "../../../types";
 import Slider from '../../../components/slider';
 import { SwiperSlide } from "swiper/react";
-import CartButtons from '../../../components/cart-butoons';
+import CartButtons from '../../../components/cart-buttons';
 
 // icons
 import { BsArrowLeft } from "react-icons/bs";
@@ -31,7 +31,15 @@ const MarketplaceId: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const reduxDispatch = useDispatch();
-  const quantity = useSelector((state:RootState) => state.cart.quantity);
+
+  const selectItemQuantity = (itemId: number) => (state: RootState) => {
+    const item = state.cart.itemsList.find((item) => item.id === itemId);
+    return item ? item.quantity : 0; 
+  };
+
+  const itemId = id ? parseInt(id, 10) : undefined;
+
+  const quantity = itemId ? useSelector(selectItemQuantity(itemId)) : 0;
 
   const handleAddToCart = ()=>{
     if (id !== undefined) {
@@ -94,7 +102,7 @@ const MarketplaceId: React.FC = () => {
 
               <p>Total views: 1.7k views</p>
 
-              <CartButtons />
+              <CartButtons id={parseInt(id, 10)} />
 
               <div>
                 <Button linkTo={quantity > 0 ? "/marketplace/checkout" : "#"} onClick={()=>handleAddToCart()}>

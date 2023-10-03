@@ -7,19 +7,26 @@ const cartSlice = createSlice({
     name: "cart",
     initialState: { 
         itemsList: initialCartState,
-        quantity: 1,
-        totalQuantity: 0,
+        totalQuantity: initialCartState.reduce((total, item) => total + item.quantity, 0),
         showCart: false
     },
     reducers: {
-       increment (state) {
-            state.quantity = state.quantity + 1;
+       increment (state, action) {
+            const itemToUpdate = state.itemsList.find((item) => item.id === action.payload);
+    
+            if (itemToUpdate) {
+                itemToUpdate.quantity += 1;
+                state.totalQuantity += 1;
+                localStorage.setItem("cart", JSON.stringify(state.itemsList));
+            }
        },
-       decrement (state) {
-            if (state.quantity > 0) {
-                state.quantity = state.quantity - 1;
-            } else {
-                state.quantity = 0
+       decrement (state, action) {
+            const itemToUpdate = state.itemsList.find((item) => item.id === action.payload);
+
+            if (itemToUpdate && itemToUpdate.quantity > 0) {
+                itemToUpdate.quantity -= 1;
+                state.totalQuantity -= 1;
+                localStorage.setItem("cart", JSON.stringify(state.itemsList));
             }
        },
        addToCart (state, action) {
@@ -28,12 +35,12 @@ const cartSlice = createSlice({
             const existingItem = state.itemsList.find((item: ItemsListProps)=> item.id === newItem.id);
 
             if (existingItem) {
-                existingItem.quantity += newItem.quantity;
+                existingItem.quantity += 1;
             } else {
                 state.itemsList.push(newItem);
             }
 
-            state.totalQuantity = state.itemsList.reduce((total, item) => total + item.quantity, 0);
+            state.totalQuantity += 1;
 
             localStorage.setItem("cart", JSON.stringify(state.itemsList));
        } 

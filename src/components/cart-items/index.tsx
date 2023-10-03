@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./index.module.css";
 import { useSelector, useDispatch } from 'react-redux';
-import CartButtons from '../cart-butoons';
+import CartButtons from '../cart-buttons';
 import { RootState } from '../../store';
 
 // icons
@@ -20,7 +20,7 @@ const CartItems: React.FC = () => {
                 <div>{item.artist}</div>
                 <div>{item.category}</div>
                 <div>Size: 200ft</div>
-                <CartButtons />
+                <CartButtons id={item.id} />
               </div>
 
               <div>
