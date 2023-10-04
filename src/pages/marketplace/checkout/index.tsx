@@ -43,7 +43,7 @@ const Checkout: React.FC = () => {
             <div className={styles.price_details}>
               <div>Products in cart: <div>{totalQuantity} items</div></div>
               <div>Shipping: <div>$2.50</div></div>
-              <div>Total: <div>{totalPrice + 2.5}</div></div>
+              <div>Total: <div>${totalPrice + 2.5}</div></div>
             </div>
           </article>
         </>
@@ -59,7 +59,7 @@ const Checkout: React.FC = () => {
           <div className={styles.price_details}>
             <div>Products in cart: <div>{totalQuantity} items</div></div>
             <div>Shipping: <div>$2.50</div></div>
-            <div>Total: <div>{totalPrice  + 2.5}</div></div>
+            <div>Total: <div>${totalPrice  + 2.5}</div></div>
           </div>
 
        

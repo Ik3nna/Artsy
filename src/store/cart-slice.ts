@@ -8,7 +8,7 @@ const cartSlice = createSlice({
     initialState: { 
         itemsList: initialCartState,
         totalQuantity: initialCartState.reduce((total, item) => total + item.quantity, 0),
-        // totalPrice: initialCartState.reduce((total, item) => total + item.quantity * parseFloat(item.price.replace("$", "")), 0),
+        totalPrice: initialCartState.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0),
         showCart: false
     },
     reducers: {
@@ -25,7 +25,7 @@ const cartSlice = createSlice({
                 state.itemsList.push(newItem as ItemsListProps);
             }
             state.totalQuantity += 1;
-            // state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseFloat(item.price.replace("$", "")), 0);
+            state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0);
             localStorage.setItem("cart", JSON.stringify(state.itemsList));
        },
        decrement (state, action) {
@@ -37,7 +37,7 @@ const cartSlice = createSlice({
                 state.itemsList = state.itemsList.filter((item: ItemsListProps) => item.id !== action.payload);
             }
             state.totalQuantity -= 1;
-            // state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseFloat(item.price.replace("$", "")), 0);
+            state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0);
             localStorage.setItem("cart", JSON.stringify(state.itemsList));
        },
        addToCart (state, action) {
@@ -50,7 +50,7 @@ const cartSlice = createSlice({
             } else {
                 state.itemsList.push(newItem);
                 state.totalQuantity += 1;
-                // state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseFloat(item.price.replace("$", "")), 0);
+                state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0);
             }
             localStorage.setItem("cart", JSON.stringify(state.itemsList));
        },
@@ -58,7 +58,7 @@ const cartSlice = createSlice({
             state.itemsList = state.itemsList.filter((item: ItemsListProps) => item.id !== action.payload);
 
             state.totalQuantity = state.itemsList.reduce((total, item) => total + item.quantity, 0);
-            // state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseFloat(item.price.replace("$", "")), 0);
+            state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0);
             localStorage.setItem("cart", JSON.stringify(state.itemsList));
        }
     }

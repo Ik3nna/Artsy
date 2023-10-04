@@ -20,7 +20,7 @@ export const Data: DataProps[] = [
         id: 1,
         category: "Editorials",
         artist: "Philomena '22",
-        price: "$90.00",
+        price: "90.00",
         image: philomenaImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -36,7 +36,7 @@ export const Data: DataProps[] = [
         id: 2,
         category: "Fashion",
         artist: "Boolean Egyptian",
-        price: "$130.00",
+        price: "130.00",
         image: booleanImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -52,7 +52,7 @@ export const Data: DataProps[] = [
         id: 3,
         category: "Optics",
         artist: "Blanc",
-        price: "$150.00",
+        price: "150.00",
         image: blancImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -68,7 +68,7 @@ export const Data: DataProps[] = [
         id: 4,
         category: "Art & Museum",
         artist: "Ellipsia",
-        price: "$170.00",
+        price: "170.00",
         image: ellipsiaImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -84,7 +84,7 @@ export const Data: DataProps[] = [
         id: 5,
         category: "Nature",
         artist: "The Lawmakers",
-        price: "$200.00",
+        price: "200.00",
         image: lawmakersImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -100,7 +100,7 @@ export const Data: DataProps[] = [
         id: 6,
         category: "Editorials",
         artist: "Veil",
-        price: "$110.00",
+        price: "110.00",
         image: veilImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -116,7 +116,7 @@ export const Data: DataProps[] = [
         id: 7,
         category: "Fashion",
         artist: "Alternating",
-        price: "$120.00",
+        price: "120.00",
         image: alternatingImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -132,7 +132,7 @@ export const Data: DataProps[] = [
         id: 8,
         category: "Optics",
         artist: "Rosemary '22",
-        price: "$250.00",
+        price: "250.00",
         image: rosemaryImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -148,7 +148,7 @@ export const Data: DataProps[] = [
         id: 9,
         category: "Art & Museum",
         artist: "Beverly",
-        price: "$210.00",
+        price: "210.00",
         image: beverlyImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -164,7 +164,7 @@ export const Data: DataProps[] = [
         id: 10,
         category: "Nature",
         artist: "The Lawmakers",
-        price: "$80.00",
+        price: "80.00",
         image: image2,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -180,7 +180,7 @@ export const Data: DataProps[] = [
         id: 11,
         category: "Nature",
         artist: "The Lawmakers",
-        price: "$220.00",
+        price: "220.00",
         image: image3,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -196,7 +196,7 @@ export const Data: DataProps[] = [
         id: 12,
         category: "Editorials",
         artist: "Veil",
-        price: "$300.00",
+        price: "300.00",
         image: image4,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -212,7 +212,7 @@ export const Data: DataProps[] = [
         id: 13,
         category: "Fashion",
         artist: "Alternating",
-        price: "$80.00",
+        price: "80.00",
         image: image5,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -228,7 +228,7 @@ export const Data: DataProps[] = [
         id: 14,
         category: "Optics",
         artist: "Rosemary '22",
-        price: "$50.00",
+        price: "50.00",
         image: rosemaryImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -244,7 +244,7 @@ export const Data: DataProps[] = [
         id: 15,
         category: "Art & Museum",
         artist: "Beverly",
-        price: "$100.00",
+        price: "100.00",
         image: beverlyImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -260,7 +260,7 @@ export const Data: DataProps[] = [
         id: 16,
         category: "Nature",
         artist: "The Lawmakers",
-        price: "$180.00",
+        price: "180.00",
         image: image2,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -276,7 +276,7 @@ export const Data: DataProps[] = [
         id: 17,
         category: "Optics",
         artist: "Blanc",
-        price: "$250.00",
+        price: "250.00",
         image: blancImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -292,7 +292,7 @@ export const Data: DataProps[] = [
         id: 18,
         category: "Art & Museum",
         artist: "Ellipsia",
-        price: "$270.00",
+        price: "270.00",
         image: ellipsiaImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -308,7 +308,7 @@ export const Data: DataProps[] = [
         id: 19,
         category: "Nature",
         artist: "The Lawmakers",
-        price: "$310.00",
+        price: "310.00",
         image: lawmakersImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
@@ -324,7 +324,7 @@ export const Data: DataProps[] = [
         id: 20,
         category: "Editorials",
         artist: "Veil",
-        price: "$150.00",
+        price: "150.00",
         image: veilImg,
         info: {
             desc: `Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,

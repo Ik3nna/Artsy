@@ -206,7 +206,7 @@ const Marketplace: React.FC = () => {
                         <div key={item.id} className={styles.box_container} onClick={()=>window.location.href=`marketplace/${item.id}`}>
                             <img src={item.image} alt={item.artist} />
                             <div>{item.artist}</div>
-                            <div>{item.price}</div>
+                            <div>${item.price}</div>
                         </div>
                     )).slice(0, showMore ? data.length : 8)
                 }
