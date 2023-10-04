@@ -12,9 +12,11 @@ const CartButtons = ({ id }: {id: number}) => {
   };
 
   const quantity = useSelector(selectItemQuantity(id));
+  const items = useSelector((state:RootState)=>state.cart.itemsList)
 
   const handleIncrement = ()=> {
     reduxDispatch(cartActions.increment(id));
+    console.log(items);
   }
 
   const handleDecrement = ()=> {

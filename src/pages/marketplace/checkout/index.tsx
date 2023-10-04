@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../store';
 import styles from "./index.module.css";
 import CartItems from '../../../components/cart-items';
+import { useSearchParams } from 'react-router-dom';
 
 // icons
 import Button from '../../../components/button';
@@ -10,12 +11,17 @@ import { Link } from 'react-router-dom';
 
 const Checkout: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const totalQuantity = useSelector((state: RootState)=>state.cart.totalQuantity)
+  const totalQuantity = useSelector((state: RootState)=>state.cart.totalQuantity);
+  const totalPrice = useSelector((state: RootState)=>state.cart.totalPrice);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleTabClick = (tab: number) =>{
     setSelectedTab(tab);
   }
-  
+
+  const id = searchParams.get("id");
+  const itemId = id ? parseInt(id, 10) : 0;
+
   return (
     <section className={styles.container}>
       <article className={styles.tabs}>
@@ -26,7 +32,7 @@ const Checkout: React.FC = () => {
 
       {selectedTab === 0 &&
         <>
-          <CartItems />
+          <CartItems id={itemId} />
 
           <article className={styles.checkout_container}>
             <div>
@@ -37,7 +43,7 @@ const Checkout: React.FC = () => {
             <div className={styles.price_details}>
               <div>Products in cart: <div>{totalQuantity} items</div></div>
               <div>Shipping: <div>$2.50</div></div>
-              <div>Total: <div>Total price</div></div>
+              <div>Total: <div>{totalPrice + 2.5}</div></div>
             </div>
           </article>
         </>
@@ -47,13 +53,13 @@ const Checkout: React.FC = () => {
         <section className={styles.shipping}>
           <article className={styles.shipping_container}>
             <div></div>
-            <CartItems />
+            <CartItems id={itemId} />
           </article>
 
           <div className={styles.price_details}>
             <div>Products in cart: <div>{totalQuantity} items</div></div>
             <div>Shipping: <div>$2.50</div></div>
-            <div>Total: <div>Total price</div></div>
+            <div>Total: <div>{totalPrice  + 2.5}</div></div>
           </div>
 
        

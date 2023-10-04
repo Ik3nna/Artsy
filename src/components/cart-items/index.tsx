@@ -1,14 +1,24 @@
-import React from 'react';
 import styles from "./index.module.css";
 import { useSelector, useDispatch } from 'react-redux';
 import CartButtons from '../cart-buttons';
 import { RootState } from '../../store';
+import { cartActions } from '../../store/cart-slice';
 
 // icons
 import { ImCancelCircle } from 'react-icons/im';
 
-const CartItems: React.FC = () => {
+const CartItems = ({ id }: {id: number}) => {
   const itemsList = useSelector((state: RootState)=> state.cart.itemsList);
+  const dispatch = useDispatch();
+
+  const handleRemoval = (itemId: number)=> {
+    dispatch(cartActions.removeFromCart(itemId))
+  }
+
+  if (itemsList.length < 1) {
+    window.location.href="/marketplace"
+  }
+
   return (
     <section className={styles.container}>
         {itemsList.map((item)=>(
@@ -24,7 +34,7 @@ const CartItems: React.FC = () => {
               </div>
 
               <div>
-                <ImCancelCircle fontSize={30} color="#888" />
+                <ImCancelCircle fontSize={30} color="#888" onClick={()=>handleRemoval(id)} />
                 <div>{item.price}</div>
               </div>
             </div><hr />
