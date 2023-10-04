@@ -21,6 +21,12 @@
     border-bottom: 2px solid var(--heroTextColor);
     padding-bottom: 10px;
 }
+
+
+/* Checkout */
+.checkout {
+    margin-top: 80px;
+}
 .container > hr:nth-of-type(1) {
     width: 60%;
     margin: auto;
@@ -57,20 +63,29 @@
 }
 
 
+/* Shipping */
+.shipping_container, .payment_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+    margin-top: 80px;
+}
 
-.shipping_container {
+.form {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
-.shipping > .price_details {
-    position: absolute;
-    right: 10%;
-    margin-top: 20px;
+.form_flex {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
 }
-.shipping > .price_details > div {
-    column-gap: 100px;
+.shipping .btn {
+    margin-top: 30px;
+    width: 600px;
 }
-
 
 
 

@@ -105,7 +105,7 @@ const MarketplaceId: React.FC = () => {
               <CartButtons id={parseInt(id, 10)} />
 
               <div>
-                <Button linkTo={quantity > 0 ? `/marketplace/checkout?id=${parseInt(id, 10)}` : "#"} onClick={()=>handleAddToCart()}>
+                <Button linkTo={quantity > 0 ? `/marketplace/checkout` : "#"} onClick={()=>handleAddToCart()}>
                   Add to cart
                 </Button>
 

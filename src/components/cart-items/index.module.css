@@ -1,5 +1,5 @@
-.container {
-    margin-top: 80px;
+.shipping {
+    width: 100%;
 }
 .items_container > div:nth-of-type(1) {
     display: flex;

@@ -7,7 +7,7 @@ import { cartActions } from '../../store/cart-slice';
 // icons
 import { ImCancelCircle } from 'react-icons/im';
 
-const CartItems = ({ id }: {id: number}) => {
+const CartItems = ({ type }: { type: string }) => {
   const itemsList = useSelector((state: RootState)=> state.cart.itemsList);
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ const CartItems = ({ id }: {id: number}) => {
   }
 
   return (
-    <section className={styles.container}>
+    <section className={`${styles.container} ${type==="shipping" && styles.shipping}`}>
         {itemsList.map((item)=>(
           <article key={item.id} className={styles.items_container}>
             <div>
@@ -34,7 +34,7 @@ const CartItems = ({ id }: {id: number}) => {
               </div>
 
               <div>
-                <ImCancelCircle fontSize={30} color="#888" onClick={()=>handleRemoval(id)} />
+                <ImCancelCircle fontSize={30} color="#888" onClick={()=>handleRemoval(item.id)} />
                 <div>{item.price}</div>
               </div>
             </div><hr />

@@ -33,9 +33,11 @@ const cartSlice = createSlice({
 
             if (itemToUpdate && itemToUpdate.quantity > 0) {
                 itemToUpdate.quantity -= 1;
-            } else {
+            } 
+            if (itemToUpdate?.quantity === 0) {
                 state.itemsList = state.itemsList.filter((item: ItemsListProps) => item.id !== action.payload);
             }
+            
             state.totalQuantity -= 1;
             state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0);
             localStorage.setItem("cart", JSON.stringify(state.itemsList));
@@ -50,8 +52,8 @@ const cartSlice = createSlice({
             } else {
                 state.itemsList.push(newItem);
                 state.totalQuantity += 1;
-                state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0);
             }
+            state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0);
             localStorage.setItem("cart", JSON.stringify(state.itemsList));
        },
        removeFromCart (state, action) {

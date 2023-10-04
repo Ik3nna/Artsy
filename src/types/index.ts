@@ -27,6 +27,18 @@ export type ButtonProps = {
     onClick?: ()=> void
 }
 
+// Input type
+export type InputProps = {
+    label?: string,
+    placeholder?: string,
+    select?: boolean,
+    icon?: string,
+    selectOptions?: React.ReactNode,
+    type?: string,
+    style?: any,
+    checkboxMessage?: string
+}
+
 // carousel type
 export type SwiperProps = {
     children: React.ReactNode,
