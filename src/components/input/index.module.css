@@ -14,7 +14,7 @@
     column-gap: 20px;
     position: relative;
 }
-.text, .select select {
+.text, .select select, .date {
     border-radius: 10px;
     width: 600px;
     height: 50px;

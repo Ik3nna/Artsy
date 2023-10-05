@@ -17,6 +17,7 @@ const Input = ({ label, placeholder, type, checkboxMessage, select, selectOption
                         style={style}
                         className={`
                             ${type === "text" && styles.text}
+                            ${type === "date" && styles.date}
                             ${type === "checkbox" && styles.checkbox}
                         `} 
                         type={type} 

@@ -12,6 +12,8 @@ import metamask from "../../../assets/MetaMask - jpeg.svg";
 import coinbase from "../../../assets/Coinbase - png.svg";
 import walletConnect from "../../../assets/WalletConnect - jpeg.svg";
 import phantom from "../../../assets/Phantom - jpeg.svg";
+import delivery from "../../../assets/Woman get online delivery.svg";
+import celebration from "../../../assets/noto_party-popper.svg";
 
 // icons
 import { BiSolidLock } from "react-icons/bi";
@@ -27,11 +29,15 @@ const Checkout: React.FC = () => {
 
   return (
     <section className={styles.container}>
-      <article className={styles.tabs}>
-        <div className={`${selectedTab === 0 && styles.active}`} onClick={()=>handleTabClick(0)}>Shopping cart</div>
-        <div className={`${selectedTab === 1 && styles.active}`} onClick={()=>handleTabClick(1)}>Shipping details</div>
-        <div className={`${selectedTab === 2 && styles.active}`} onClick={()=>handleTabClick(2)}>Payment details</div>
-      </article><hr />
+      {selectedTab !== 3 &&
+        <>
+        <article className={styles.tabs}>
+          <div className={`${selectedTab === 0 && styles.active}`} onClick={()=>handleTabClick(0)}>Shopping cart</div>
+          <div className={`${selectedTab === 1 && styles.active}`} onClick={()=>handleTabClick(1)}>Shipping details</div>
+          <div className={`${selectedTab === 2 && styles.active}`} onClick={()=>handleTabClick(2)}>Payment details</div>
+        </article><hr />
+        </>
+      }
 
       {selectedTab === 0 &&
         <section className={styles.checkout}>
@@ -180,7 +186,7 @@ const Checkout: React.FC = () => {
                   <Input
                     label='Expiry date'
                     placeholder='MM/YY'
-                    type='text'
+                    type='date'
                     style={{ width: "280px" }}
                   />
 
@@ -198,7 +204,7 @@ const Checkout: React.FC = () => {
                 />
               </div>
 
-              <Button linkTo="#" className="btn">Confirm</Button>
+              <Button linkTo="#" className="btn" onClick={()=>setSelectedTab(3)}>Confirm</Button>
             </div>
 
 
@@ -221,6 +227,21 @@ const Checkout: React.FC = () => {
                 <div>Shipping: <div>$2.50</div></div>
                 <div>Total: <div>${totalPrice  + 2.5}</div></div>
               </div>
+            </div>
+          </article>
+        </section>
+      }
+
+      {selectedTab === 3 &&
+        <section className={styles.delivery}>
+          <img src={delivery} alt="delivery" />
+
+          <article>
+            <div>Thank you for your purchase.</div>
+
+            <div>
+              <div>You are amazing. Cheers to being Artsy!!</div> 
+              <img src={celebration} alt="celebration" />
             </div>
           </article>
         </section>

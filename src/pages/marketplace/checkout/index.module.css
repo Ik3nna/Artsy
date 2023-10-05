@@ -151,3 +151,29 @@
 .payment .price_details {
     margin-top: 30px;
 }
+
+
+/* Delivery */
+.delivery {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 80px;
+}
+.delivery > img {
+    width: 450px;
+}
+.delivery article > div:nth-of-type(1) {
+    color: #000;
+    font-size: 30px;
+    line-height: 55px;
+}
+.delivery article div:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+}
+.delivery article img {
+    width: 100px;
+    margin-top: -30px;
+    font-size: 20px;
+}
