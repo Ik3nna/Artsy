@@ -34,8 +34,8 @@ const CartItems = ({ type }: { type: string }) => {
               </div>
 
               <div>
-                <ImCancelCircle fontSize={30} color="#888" onClick={()=>handleRemoval(item.id)} />
-                <div>{item.price}</div>
+                <ImCancelCircle fontSize={30} className={styles.cancel} color="#888" onClick={()=>handleRemoval(item.id)} />
+                <div>${item.price}</div>
               </div>
             </div><hr />
           </article>

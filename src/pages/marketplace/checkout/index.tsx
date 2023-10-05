@@ -14,6 +14,7 @@ import walletConnect from "../../../assets/WalletConnect - jpeg.svg";
 import phantom from "../../../assets/Phantom - jpeg.svg";
 import delivery from "../../../assets/Woman get online delivery.svg";
 import celebration from "../../../assets/noto_party-popper.svg";
+import watermark from "../../../assets/delivery-logo.svg";
 
 // icons
 import { BiSolidLock } from "react-icons/bi";
@@ -234,6 +235,7 @@ const Checkout: React.FC = () => {
 
       {selectedTab === 3 &&
         <section className={styles.delivery}>
+          <img className={styles.watermark} src={watermark} alt="watermark" />
           <img src={delivery} alt="delivery" />
 
           <article>
