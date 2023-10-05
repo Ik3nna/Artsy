@@ -25,9 +25,9 @@ const Input = ({ label, placeholder, type, checkboxMessage, select, selectOption
                     {type === "checkbox" &&
                         <div className={styles.message}>{checkboxMessage}</div>
                     }
+                    {icon && <img src={icon} alt="" />}
                 </div>
             }
-            {icon && <img src={icon} alt="" />}
         </div>
     </section>
   )

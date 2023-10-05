@@ -3,11 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../store';
 import styles from "./index.module.css";
 import CartItems from '../../../components/cart-items';
-
-// icons
 import Button from '../../../components/button';
 import { Link } from 'react-router-dom';
 import Input from '../../../components/input';
+
+// images 
+import metamask from "../../../assets/MetaMask - jpeg.svg";
+import coinbase from "../../../assets/Coinbase - png.svg";
+import walletConnect from "../../../assets/WalletConnect - jpeg.svg";
+import phantom from "../../../assets/Phantom - jpeg.svg";
+
+// icons
+import { BiSolidLock } from "react-icons/bi";
 
 const Checkout: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -137,7 +144,84 @@ const Checkout: React.FC = () => {
       {selectedTab === 2 &&
         <section className={styles.payment}>
           <article className={styles.payment_container}>
-            
+            <div className={styles.payment_method}>
+              <h6>Payment method</h6>
+
+              <div className={styles.wallet}>
+                <div className={styles.circle}></div>
+
+                <p>Select your wallet</p>
+
+                <div className={styles.imgContainer}>
+                  <img src={metamask} alt="metamask" />
+                  <img src={coinbase} alt="coinbase" />
+                  <img src={walletConnect} alt="wallet connect" />
+                  <img src={phantom} alt="phantom" />
+                </div>
+              </div>
+
+              <p>Connect with one of our available wallet providers or add and connect a new wallet. </p>
+
+              <div className={styles.form}>
+                <Input 
+                  label='Wallet type'
+                  type='text'
+                  placeholder='Please insert your wallet type'
+                />
+
+                <Input
+                  label='Key'
+                  type='text'
+                  placeholder='Please enter your key'
+                  icon={metamask}
+                />
+
+                <div className={styles.form_flex}>
+                  <Input
+                    label='Expiry date'
+                    placeholder='MM/YY'
+                    type='text'
+                    style={{ width: "280px" }}
+                  />
+
+                  <Input
+                    label='CVV'
+                    placeholder='...'
+                    type='text'
+                    style={{ width: "280px" }}
+                  />
+                </div>
+
+                <Input 
+                  type='checkbox'
+                  checkboxMessage='Save my wallet details & information for future transactions'
+                />
+              </div>
+
+              <Button linkTo="#" className="btn">Confirm</Button>
+            </div>
+
+
+            <div className={styles.payment_deets}>
+              <div>
+                <BiSolidLock />
+                <div>Secure server</div>
+              </div>
+
+              <h6>Payment summary</h6><hr />
+
+              <div>Metamask wallet: 002345KJi90pzzz3</div>
+
+              <div>Actively linked to Yaba, Lagos Nigeria.</div><hr />
+
+              <div>Expected arrival date: Between 22nd September and 26th September 20222</div>
+
+              <div className={styles.price_details}>
+                <div>Products in cart: <div>{totalQuantity} items</div></div>
+                <div>Shipping: <div>$2.50</div></div>
+                <div>Total: <div>${totalPrice  + 2.5}</div></div>
+              </div>
+            </div>
           </article>
         </section>
       }
@@ -145,4 +229,4 @@ const Checkout: React.FC = () => {
   )
 }
 
-export default Checkout
+export default Checkout;
