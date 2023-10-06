@@ -115,14 +115,14 @@ const Checkout: React.FC = () => {
                       <option value="Nigeria">Nigeria</option>
                     </>
                   }
-                  style={{ width: "280px" }}
+                  className="flex_input"
                 />
 
                 <Input 
                   label="Postal code" 
                   type="text"
                   placeholder="001001"
-                  style={{ width: "280px" }}
+                  className="flex_input"
                 />
               </div>
 
@@ -135,7 +135,7 @@ const Checkout: React.FC = () => {
               <Button linkTo="#" className="btn" onClick={()=>setSelectedTab(2)}>Proceed to payment</Button>
             </div>
 
-            <article className={styles.shipping}>
+            <article className={styles.shipping_deets}>
               <CartItems type="shipping" />
 
               <div className={styles.price_details}>

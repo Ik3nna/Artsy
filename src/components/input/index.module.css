@@ -42,3 +42,41 @@
     top: 10%;
     transform: translateY(10%);
 }
+
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+    .text, .select select, .date {
+        width: 500px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .text, .select select, .date {
+        width: 400px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .text, .select select, .date {
+        width: 300px;
+    }
+    .input_container {
+        column-gap: 10px;
+    }
+    .message {
+        width: 300px;
+    }
+}
+@media (max-width: 767px) {
+    .container {
+        max-width: 100%;
+        width: 100%;
+        margin: auto;
+    }
+    .input_container {
+        column-gap: 15px;
+    }
+    .text, .select select, .date {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+}

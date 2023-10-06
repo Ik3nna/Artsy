@@ -1,7 +1,8 @@
 import { InputProps } from '../../types'
 import styles from "./index.module.css";
+import checkoutStyles from "../../pages/marketplace/checkout/index.module.css"
 
-const Input = ({ label, placeholder, type, checkboxMessage, select, selectOptions, icon, style }: InputProps) => {
+const Input = ({ label, placeholder, type, checkboxMessage, select, selectOptions, icon, style, className }: InputProps) => {
   return (
     <section className={styles.container}>
         <div className={styles.label}>{label}</div>
@@ -9,7 +10,7 @@ const Input = ({ label, placeholder, type, checkboxMessage, select, selectOption
         <div>
             {select ? 
                 <div className={styles.select}>
-                    <select style={style}>{selectOptions}</select>
+                    <select className={`${checkoutStyles[className]}`}>{selectOptions}</select>
                 </div>
                 :
                 <div className={styles.input_container}>
@@ -19,6 +20,7 @@ const Input = ({ label, placeholder, type, checkboxMessage, select, selectOption
                             ${type === "text" && styles.text}
                             ${type === "date" && styles.date}
                             ${type === "checkbox" && styles.checkbox}
+                            ${checkoutStyles[className]}
                         `} 
                         type={type} 
                         placeholder={type==="text" ? placeholder : ""} 

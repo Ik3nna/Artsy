@@ -36,7 +36,8 @@ export type InputProps = {
     selectOptions?: React.ReactNode,
     type?: string,
     style?: any,
-    checkboxMessage?: string
+    checkboxMessage?: string,
+    className?: any
 }
 
 // carousel type
