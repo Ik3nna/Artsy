@@ -6,6 +6,7 @@ import "swiper/css";
 // styles
 import homeStyles from "../../pages/home/index.module.css";
 import marketplaceStyles from "../../pages/marketplace/id/index.module.css";
+import auctionStyles from "../../pages/auctions/index.module.css";
 
 // type
 import { SwiperProps } from '../../types';
@@ -20,6 +21,7 @@ const Slider = ({ children, className }: SwiperProps)=> {
             className={`
                 ${homeStyles[className]}
                 ${marketplaceStyles[className]}
+                ${auctionStyles[className]}
             `}
         >
             {children}

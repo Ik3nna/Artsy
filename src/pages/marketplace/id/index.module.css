@@ -108,10 +108,10 @@
    font-weight: 500;
    font-size: 24px;
 }
-.slider .img_container {
+.container .slider .img_container {
     width: 430px;
 }
-.slider img {
+.container .slider img {
     border: 2px solid var(--mainTextColor);
     padding: 20px;
     width: 400px;

@@ -1,0 +1,90 @@
+.container {
+    max-width: 100%;
+    width: 80%;
+    margin: 80px auto 100px;
+    font-family: var(--fontSatoshi);
+}
+.container p:nth-of-type(1) {
+    color: var(--mainTextColor);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+.container .slider .img_container {
+    width: 485px;
+    height: 396px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.container .slider img {
+    width: 485px;
+    padding: 10px;
+    border-radius: 20px;
+}
+.info {
+    border: 0.5px solid var(--bgColor);
+    background: rgba(245, 244, 244, 0.24);
+    backdrop-filter: blur(1.5px);
+    padding: 20px;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--bgColor);
+    font-size: 24px;
+    cursor: pointer;
+}
+.container article h6 {
+    font-size: 20px;
+    margin: 80px 0px 40px;
+}
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.heart {
+    float: right;
+    margin-right: 10px;
+}
+.ob, .flex > div, .ob > div:nth-of-type(2), .fa, .flex > div, .fa > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.ob > div:nth-of-type(1), .fa > div:nth-of-type(1) {
+    box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 30px 0px;
+}
+.ob > div:nth-of-type(1) > div:nth-of-type(2), .fa > div:nth-of-type(1) > div:nth-of-type(2) {
+    color: var(--mainTextColor);
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.ob > div:nth-of-type(2) div, .fa > div:nth-of-type(2) {
+    color: var(--subTextColor);
+}
+.ob > div:nth-of-type(2) span, .fa > div:nth-of-type(2) span  {
+    color: var(--mainTextColor);
+    padding-left: 10px;
+    font-weight: 700;
+}
+.ob .flex, .fa .flex {
+    background-color: #F6F4F4;
+    border-radius: 10px;
+    padding: 10px;
+}
+.ob .flex > div > div:nth-of-type(2), .fa .flex > div > div:nth-of-type(2) {
+    font-weight: 700;
+    color: var(--mainTextColor);
+}
+
+
+
+
+
