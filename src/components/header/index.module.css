@@ -41,7 +41,7 @@ nav ul {
     position: absolute;
     background-color: #E31616;
     color: var(--bgColor);
-    padding: 3px;
+    padding: 2px 5px;
     border-radius: 50%;
     font-weight: 700;
     font-family: var(--fontSatoshi);
@@ -49,7 +49,6 @@ nav ul {
     font-size: 12px;
     top: -10px;
     left: 15px;
-
 }
 .icons svg {
     font-size: 25px;
@@ -155,8 +154,11 @@ nav ul {
     .icons svg {
         font-size: 30px;
     }
-    .icons svg:nth-of-type(3) {
+    .icons svg:nth-of-type(2) {
         display: none;
+    }
+    .cart_content {
+        top: -8px;
     }
 
 

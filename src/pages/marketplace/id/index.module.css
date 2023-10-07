@@ -179,10 +179,10 @@
     .viewbox {
         font-size: 18px;
     }
-    .slider .img_container {
+    .container .slider .img_container {
         width: 350px;
     }
-    .slider img {
+    .container .slider img {
         border: 2px solid var(--mainTextColor);
         padding: 20px;
         width: 330px;
@@ -256,10 +256,10 @@
        font-weight: 500;
        font-size: 20px;
     }
-    .slider .img_container {
+    .container .slider .img_container {
         width: 300px;
     }
-    .slider img {
+    .container .slider img {
         width: 290px;
         height: 290px;
         object-fit: cover;

@@ -32,12 +32,12 @@ const cartSlice = createSlice({
 
             if (itemToUpdate && itemToUpdate.quantity > 0) {
                 itemToUpdate.quantity -= 1;
+                state.totalQuantity -= 1;
             } 
             if (itemToUpdate?.quantity === 0) {
                 state.itemsList = state.itemsList.filter((item: ItemsListProps) => item.id !== action.payload);
             }
-            
-            state.totalQuantity -= 1;
+
             state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0);
             localStorage.setItem("cart", JSON.stringify(state.itemsList));
        },

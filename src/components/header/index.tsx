@@ -33,15 +33,8 @@ const Header: React.FC = ()=> {
     const { sticky, stickyRef } = useSticky();
 
     const [active, setActive] = useState(false);
-    const [cartIcon, setCartIcon] = useState(0);
 
     const totalQuantity = useSelector((state: RootState)=> state.cart.totalQuantity);
-
-    useEffect(()=>{
-        if (totalQuantity) {
-            setCartIcon(totalQuantity);
-        }
-    },[totalQuantity])
 
     return(
         <>
@@ -65,8 +58,8 @@ const Header: React.FC = ()=> {
                         <BiSearch />
 
                         <div className={styles.cart_icon}>
-                            <BiCart onClick={()=>window.location.href="/marketplace/checkout"} />
-                            {cartIcon > 0 &&
+                            <BiCart onClick={()=>{totalQuantity > 0 ? window.location.href="/marketplace/checkout": ""}} />
+                            {totalQuantity > 0 &&
                                 <div className={styles.cart_content}>{totalQuantity}</div>
                             }
                         </div>
