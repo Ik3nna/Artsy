@@ -10,6 +10,7 @@ import Marketplace from "./pages/marketplace";
 import MarketplaceId from "./pages/marketplace/id";
 import Checkout from "./pages/marketplace/checkout";
 import Auctions from "./pages/auctions";
+import Drop from "./pages/drop";
 
 const App: React.FC =()=> {
 
@@ -24,6 +25,7 @@ const App: React.FC =()=> {
         <Route path="/marketplace/:id" element={<MarketplaceId />} />
         <Route path="/marketplace/checkout" element={<Checkout /> } />
         <Route path="/auctions" element={<Auctions />} />
+        <Route path="/drop" element={<Drop />} />
         <Route path="/" element= {<Navigate replace to="/home" />} />
       </Routes>
 
