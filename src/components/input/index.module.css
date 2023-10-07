@@ -70,6 +70,7 @@
         max-width: 100%;
         width: 100%;
         margin: auto;
+        font-size: 16px;
     }
     .input_container {
         column-gap: 15px;

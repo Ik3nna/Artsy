@@ -188,14 +188,14 @@ const Checkout: React.FC = () => {
                     label='Expiry date'
                     placeholder='MM/YY'
                     type='date'
-                    style={{ width: "280px" }}
+                    className="flex_input"
                   />
 
                   <Input
                     label='CVV'
                     placeholder='...'
                     type='text'
-                    style={{ width: "280px" }}
+                    className="flex_input"
                   />
                 </div>
 

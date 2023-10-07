@@ -174,13 +174,16 @@
     color: #000;
     font-size: 30px;
     line-height: 55px;
+    text-align: center;
 }
 .delivery article div:nth-of-type(2) {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-left: 30px;
 }
 .delivery article img {
-    width: 100px;
+    width: 50px !important;
     margin-top: -30px;
     font-size: 20px;
 }
@@ -195,6 +198,24 @@
     }
     .shipping_container {
         column-gap: 10px;
+    }
+    .payment_method {
+        border: 1px solid var(--bgColor);
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+        padding: 30px;
+        width: 100%;
+    }
+    .circle {
+        margin-right: 10px;
+    }
+    .payment_method > p {
+        padding-left: 30px;
+    }
+    .imgContainer img {
+        width: 40px;
+    }
+    .payment_deets > div:nth-of-type(1) {
+        right: 5%;
     }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -212,6 +233,30 @@
     }
     .shipping .btn, .payment .btn {
         width: 400px;
+    }
+    .payment_method {
+        padding: 20px;
+        width: 100%;
+        margin: auto;
+    }
+    .circle {
+        margin-right: 10px;
+    }
+    .payment_method > p {
+        padding-left: 30px;
+        width: 100%;
+    }
+    .imgContainer img {
+        width: 40px;
+    }
+    .payment_deets > div:nth-of-type(1) {
+        right: 3%;
+    }
+    .watermark {
+        width: 300px !important;
+    }
+    .delivery > img {
+        width: 450px;
     }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -237,11 +282,56 @@
     .shipping .btn, .payment .btn {
        width: 300px;
     }
+    .payment h6 {
+        font-size: 20px;
+    }
+    .payment_method {
+        padding: 20px;
+        width: 100%;
+        margin: auto;
+    }
+    .circle {
+        margin-right: 10px;
+        width: 10px;
+        height: 10px;
+    }
+    .wallet p {
+        font-size: 16px;
+    }
+    .payment_method > p {
+        padding-left: 20px;
+        width: 100%;
+        font-size: 16px;
+    }
+    .imgContainer {
+        margin-right: auto;
+    }
+    .imgContainer img {
+        width: 30px;
+    }
+    .payment_deets > div:nth-of-type(1) {
+        right: 3%;
+    }
+    .payment_deets {
+        padding-left: 20px;
+        font-size: 16px;
+    }
+    .payment_deets > div:nth-of-type(4) {
+        width: 100%;
+        line-height: 35px;
+    } 
+    .watermark {
+        width: 300px !important;
+    }
+    .delivery > img {
+        width: 350px;
+    }
 }
 @media (max-width: 767px) {
     .container {
         max-width: 100%;
         width: 95%;
+        margin-bottom: 50px !important;
     }
     .tabs, .container > hr:nth-of-type(1) {
         display: none;
@@ -289,8 +379,62 @@
         display: none;
     }
     .shipping .btn, .payment .btn {
-       max-width: 100%;
-       width: 90%;
+       width: 100%;
        margin-top: 10px;
+    }
+    .payment h6 {
+        font-size: 20px;
+    }
+
+    .payment_method {
+        padding: 20px;
+        width: 100%;
+        margin: auto;
+    }
+    .circle {
+        margin-right: 10px;
+        width: 10px;
+        height: 10px;
+    }
+    .wallet p {
+        font-size: 16px;
+    }
+    .payment_method > p {
+        padding-left: 20px;
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    .imgContainer {
+        margin-right: auto;
+    }
+    .imgContainer img {
+        width: 30px;
+    }
+    .payment .form {
+        width: 100% !important;
+    }
+    .payment .form_flex {
+        column-gap: 10px !important;
+    }
+    .payment_deets {
+        display: none;
+    }
+    .watermark {
+        display: none;
+    }
+    .delivery > img {
+        width: 100%;
+    }
+    .delivery article > div:nth-of-type(1) {
+        font-size: 24px;
+        line-height: 40px;
+    }
+    .delivery article div:nth-of-type(2) {
+        text-align: center;
+        font-size: 16px;
+    }
+    .delivery article img {
+        display: none;
     }
 }
