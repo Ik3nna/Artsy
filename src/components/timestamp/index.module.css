@@ -1,0 +1,15 @@
+.container {
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: var(--bgColor);
+    font-size: 14px;
+}
+.green {
+    background-color: #3EA03B;
+}
+.blue {
+    background-color: #4693ED;
+}
+.grey {
+    background-color: #999EA5;
+}

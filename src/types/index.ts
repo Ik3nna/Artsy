@@ -46,7 +46,6 @@ export type SwiperProps = {
     className?: any
 }
 
-
 // cart itemsList type
 export type ItemsListProps = {
     id: number,
@@ -57,3 +56,22 @@ export type ItemsListProps = {
     quantity: number
 }
 
+// timestamp type
+export type TimeStampProps = {
+    time: string,
+    bg: string
+}
+
+// Auction data type props
+export type AuctionDataProps = {
+    id: number,
+    image: string,
+    title: string,
+    time: string,
+    imageBg: string,
+    imageTime: string,
+    timeTitle: string,
+    imageTimestamp: string,
+    mainBg: string,
+    mainTime: string
+}
