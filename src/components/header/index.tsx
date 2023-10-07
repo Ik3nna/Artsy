@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import useSticky from "./useSticky-hook";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // assets
 import artsy from "../../assets/ARTSY..svg"
@@ -9,6 +10,7 @@ import artsy from "../../assets/ARTSY..svg"
 // icons
 import { BiSearch, BiCart } from "react-icons/bi";
 import { GrNotification } from "react-icons/gr"
+import { RootState } from "../../store";
 
 const Header: React.FC = ()=> {
     const navItem = [
@@ -31,6 +33,15 @@ const Header: React.FC = ()=> {
     const { sticky, stickyRef } = useSticky();
 
     const [active, setActive] = useState(false);
+    const [cartIcon, setCartIcon] = useState(0);
+
+    const totalQuantity = useSelector((state: RootState)=> state.cart.totalQuantity);
+
+    useEffect(()=>{
+        if (totalQuantity) {
+            setCartIcon(totalQuantity);
+        }
+    },[totalQuantity])
 
     return(
         <>
@@ -53,7 +64,12 @@ const Header: React.FC = ()=> {
                     <div className={styles.icons}>
                         <BiSearch />
 
-                        <BiCart onClick={()=>window.location.href="/marketplace/checkout"} />
+                        <div className={styles.cart_icon}>
+                            <BiCart onClick={()=>window.location.href="/marketplace/checkout"} />
+                            {cartIcon > 0 &&
+                                <div className={styles.cart_content}>{totalQuantity}</div>
+                            }
+                        </div>
 
                         <GrNotification />
                     </div>

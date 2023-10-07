@@ -9,6 +9,7 @@ import Home from "./pages/home";
 import Marketplace from "./pages/marketplace";
 import MarketplaceId from "./pages/marketplace/id";
 import Checkout from "./pages/marketplace/checkout";
+import Auctions from "./pages/auctions";
 
 const App: React.FC =()=> {
 
@@ -22,6 +23,7 @@ const App: React.FC =()=> {
         <Route path="/marketplace" element={<Marketplace />} />
         <Route path="/marketplace/:id" element={<MarketplaceId />} />
         <Route path="/marketplace/checkout" element={<Checkout /> } />
+        <Route path="/auctions" element={<Auctions />} />
         <Route path="/" element= {<Navigate replace to="/home" />} />
       </Routes>
 

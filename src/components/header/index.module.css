@@ -34,6 +34,23 @@ nav ul {
     column-gap: 30px;
     margin-left: auto;
 }
+.cart_icon {
+    position: relative;
+}
+.cart_content {
+    position: absolute;
+    background-color: #E31616;
+    color: var(--bgColor);
+    padding: 3px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-family: var(--fontSatoshi);
+    cursor: pointer;
+    font-size: 12px;
+    top: -10px;
+    left: 15px;
+
+}
 .icons svg {
     font-size: 25px;
 }

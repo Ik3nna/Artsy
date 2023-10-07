@@ -9,7 +9,6 @@ const cartSlice = createSlice({
         itemsList: initialCartState,
         totalQuantity: initialCartState.reduce((total, item) => total + item.quantity, 0),
         totalPrice: initialCartState.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0),
-        showCart: false
     },
     reducers: {
        increment (state, action) {
