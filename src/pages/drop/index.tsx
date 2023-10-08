@@ -2,12 +2,13 @@ import React from 'react';
 import styles from "./index.module.css";
 import { AuctionDataProps } from '../../types';
 import Timestamp from '../../components/timestamp';
+import { motion } from 'framer-motion';
 
 // assets
-import drop1 from "../../assets/drop-1.svg";
-import drop2 from "../../assets/drop-2.svg";
-import drop3 from "../../assets/drop-3.svg";
-import drop4 from "../../assets/drop-4.svg";
+import drop1 from "../../assets/drop/drop1.jpeg";
+import drop2 from "../../assets/drop/drop2.jpeg";
+import drop3 from "../../assets/drop/drop3.jpeg";
+import drop4 from "../../assets/drop/drop4.jpeg";
 
 const Drop: React.FC = () => {
   const data: AuctionDataProps[] = [
@@ -18,7 +19,7 @@ const Drop: React.FC = () => {
   ]
 
   return (
-    <section className={styles.container}>
+    <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={styles.container}>
       <h3>Upcoming drops</h3>
       <p>Turn on notifications so that no drops will miss you</p>
 
@@ -57,7 +58,7 @@ const Drop: React.FC = () => {
           </div>
         ))}
       </article>
-    </section>
+    </motion.section>
   )
 }
 

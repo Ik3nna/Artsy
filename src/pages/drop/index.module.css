@@ -26,6 +26,12 @@
 .image_container {
     position: relative;
 }
+.image_container img {
+    width: 600px;
+    object-fit: cover;
+    height: 441px;
+    border-radius: 10px;
+}
 .drop_filter {
     border-radius: 8px;
     border: 0.5px solid #FFF;
@@ -93,7 +99,7 @@
         column-gap: 40px;
     }
     .info {
-        row-gap: 20px;
+        row-gap: 25px;
     }
     .drop_filter {
         width: 90%;
@@ -115,7 +121,7 @@
         line-height: 30px;
     }
     .info {
-        row-gap: 20px;
+        row-gap: 30px;
     }
     .info > div:nth-of-type(1) {
         font-size: 18px;
@@ -152,7 +158,7 @@
         line-height: 24px;
     }
     .info {
-        row-gap: 10px;
+        row-gap: 30px;
     }
     .info > div:nth-of-type(1) {
         font-size: 16px;
@@ -189,6 +195,9 @@
         justify-content: flex-start;
         align-items: flex-start;
         row-gap: 20px;
+    }
+    .image_container img {
+        width: 90vw;
     }
     .drop_filter {
         width: 90%;

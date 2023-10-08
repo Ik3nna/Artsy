@@ -1,6 +1,7 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import styles from "./index.module.css";
 import { Data } from '../../utils/data';
+import { motion } from 'framer-motion';
 
 // assets
 import filterIcon from "../../assets/filter.svg";
@@ -136,7 +137,7 @@ const Marketplace: React.FC = () => {
     }, [checkedCategories, selectedPrice, allCategoriesSelected]);
 
   return (
-    <section className={styles.container}>
+    <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={styles.container}>
         <article>
             <div className={styles.search}>
                 <input type='text' 
@@ -218,7 +219,7 @@ const Marketplace: React.FC = () => {
                 </div>
             }
         </article>
-    </section>
+    </motion.section>
   )
 }
 

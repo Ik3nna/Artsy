@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./index.module.css";
 import Slider from '../../components/slider';
 import { SwiperSlide } from 'swiper/react';
+import { motion } from 'framer-motion';
 
 // assets
 import auctions1 from "../../assets/auctions-1.svg";
@@ -25,7 +26,7 @@ const Auctions: React.FC = () => {
   ]
 
   return (
-    <section className={styles.container}>
+    <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={styles.container}>
       <p>Here's an overview of products actively on auction, explore!</p>
 
       <Slider className="slider">
@@ -98,7 +99,7 @@ const Auctions: React.FC = () => {
           </div>
         </div>
       </article>
-    </section>
+    </motion.section>
   )
 }
 

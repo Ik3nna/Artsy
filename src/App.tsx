@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./index.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import { AnimatePresence } from "framer-motion";
 
 // pages
 import Home from "./pages/home";
@@ -19,15 +20,17 @@ const App: React.FC =()=> {
     <BrowserRouter>
       <Header />
       
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/marketplace" element={<Marketplace />} />
-        <Route path="/marketplace/:id" element={<MarketplaceId />} />
-        <Route path="/marketplace/checkout" element={<Checkout /> } />
-        <Route path="/auctions" element={<Auctions />} />
-        <Route path="/drop" element={<Drop />} />
-        <Route path="/" element= {<Navigate replace to="/home" />} />
-      </Routes>
+      <AnimatePresence onExitComplete={()=>{}}>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/marketplace/:id" element={<MarketplaceId />} />
+          <Route path="/marketplace/checkout" element={<Checkout /> } />
+          <Route path="/auctions" element={<Auctions />} />
+          <Route path="/drop" element={<Drop />} />
+          <Route path="/" element= {<Navigate replace to="/home" />} />
+        </Routes>
+      </AnimatePresence>
 
       <Footer />
     </BrowserRouter>

@@ -7,6 +7,7 @@ import { State, Action } from "../../../types";
 import Slider from '../../../components/slider';
 import { SwiperSlide } from "swiper/react";
 import CartButtons from '../../../components/cart-buttons';
+import { motion } from 'framer-motion';
 
 // icons
 import { BsArrowLeft } from "react-icons/bs";
@@ -71,12 +72,13 @@ const MarketplaceId: React.FC = () => {
     { id: 5, image: image5, alt: "five" },
     { id: 6, image: image2, alt: "six" },
   ]
+  setShowDropdown
 
   if (id !== undefined) {
     const findItem = Data.find((item)=>item.id == parseInt(id, 10));
  
     return (
-      <section className={styles.container}>
+      <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={styles.container}>
         <article>
           <div onClick={()=>navigate(-1)} className={styles.back}>
             <BsArrowLeft fontSize={25} />
@@ -180,7 +182,7 @@ const MarketplaceId: React.FC = () => {
         <div className={styles.btn} onClick={()=>window.location.href="/marketplace"}>
           Explore all
         </div>
-      </section>
+      </motion.section>
     )
   }
 }

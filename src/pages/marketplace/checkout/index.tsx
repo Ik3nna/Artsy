@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
 import styles from "./index.module.css";
 import CartItems from '../../../components/cart-items';
 import Button from '../../../components/button';
 import { Link } from 'react-router-dom';
 import Input from '../../../components/input';
+import { motion } from 'framer-motion';
 
 // images 
 import metamask from "../../../assets/MetaMask - jpeg.svg";
@@ -29,7 +30,7 @@ const Checkout: React.FC = () => {
   }
 
   return (
-    <section className={styles.container}>
+    <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={styles.container}>
       {selectedTab !== 3 &&
         <>
         <article className={styles.tabs}>
@@ -248,7 +249,7 @@ const Checkout: React.FC = () => {
           </article>
         </section>
       }
-    </section>
+    </motion.section>
   )
 }
 

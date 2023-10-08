@@ -5,6 +5,7 @@ import Carousel from '../../components/carousel';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import styles from "./index.module.css";
+import { motion } from 'framer-motion';
 
 // images 
 import image1 from "../../assets/Rectangle 230.svg";
@@ -52,7 +53,7 @@ const Home: React.FC = () => {
   ]
 
   return (
-    <main className={styles.container}>
+    <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={styles.container}>
         <section className={styles.hero}>
             <h1>
                 Photography is poetry & beautiful untold stories
@@ -293,7 +294,7 @@ const Home: React.FC = () => {
                 </Carousel>
             </article>
         </section>
-    </main>
+    </motion.main>
   )
 }
 

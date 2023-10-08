@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./index.module.css";
 import useSticky from "../../hooks/useSticky-hook";
 import { NavLink } from "react-router-dom";
