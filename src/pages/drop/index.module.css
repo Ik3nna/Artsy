@@ -1,5 +1,223 @@
 .container {
     max-width: 100%;
     width: 80%;
-    margin: auto;
+    margin: 80px auto 100px;
+    font-family: var(--fontSatoshi);
 }
+.container h3 {
+    color: var(--mainTextColor);
+    font-size: 35px;
+    line-height: 60px;
+    text-align: center;
+}
+.container > p:nth-of-type(1) {
+    color: var(--subTextColor);
+    font-size: 24px;
+    line-height: 45px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.flex_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.image_container {
+    position: relative;
+}
+.drop_filter {
+    border-radius: 8px;
+    border: 0.5px solid #FFF;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), rgba(245, 244, 244, 0.24);
+    backdrop-filter: blur(1.5px);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    padding: 10px;
+    color: var(--bgColor);
+}
+.drop_filter > div:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.drop_filter > div:nth-of-type(2) div {
+    font-size: 24px;
+    line-height: 39px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+}
+.info > div:nth-of-type(1) {
+    color: var(--mainTextColor);
+    font-size: 20px;
+}
+.info > div:nth-of-type(2) {
+    color: var(--mainTextColor);
+    font-size: 36px;
+    font-weight: 500;
+}
+.info p {
+    width: 400px;
+    font-size: 20px;
+    line-height: 30px;
+    color: var(--subTextColor);
+}
+.info > div:nth-of-type(3) {
+    font-size: 24px;
+    line-height: 35px;
+    font-weight: 500;
+    color: var(--mainTextColor);
+}
+.info span {
+    margin-left: 30px;
+    color: #006CA2;
+}
+.link {
+    text-decoration: underline;
+    color: #006CA2;
+    cursor: pointer;
+}
+
+
+
+
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .flex_container {
+        column-gap: 40px;
+    }
+    .info {
+        row-gap: 20px;
+    }
+    .drop_filter {
+        width: 90%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .flex_container {
+        column-gap: 40px;
+    }
+    .drop_filter {
+        width: 90%;
+    }
+    .image_container img {
+        width: 500px;
+    }
+    .info p {
+        width: 300px;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .info {
+        row-gap: 20px;
+    }
+    .info > div:nth-of-type(1) {
+        font-size: 18px;
+    }
+    .info > div:nth-of-type(2) {
+        font-size: 30px;
+    }
+    .info p {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .info > div:nth-of-type(3) {
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .flex_container {
+        column-gap: 10px;
+    }
+    .drop_filter {
+        width: 90%;
+    }
+    .drop_filter > div:nth-of-type(2) div {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .image_container img {
+        width: 400px;
+    }
+    .info p {
+        width: 270px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .info {
+        row-gap: 10px;
+    }
+    .info > div:nth-of-type(1) {
+        font-size: 16px;
+    }
+    .info > div:nth-of-type(2) {
+        font-size: 24px;
+    }
+    .info p {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .info > div:nth-of-type(3) {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+@media (max-width: 767px) {
+    .container {
+        width: 90%;
+        margin: 30px auto 50px;
+    }
+    .container h3 {
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+    .container > p:nth-of-type(1) {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+    .flex_container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        row-gap: 20px;
+    }
+    .drop_filter {
+        width: 90%;
+    }
+    .drop_filter > div:nth-of-type(2) div {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .info p {
+        width: 100%;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .info {
+        row-gap: 20px;
+    }
+    .info > div:nth-of-type(1) {
+        font-size: 16px;
+    }
+    .info > div:nth-of-type(2) {
+        font-size: 24px;
+    }
+    .info p {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .info > div:nth-of-type(3) {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+

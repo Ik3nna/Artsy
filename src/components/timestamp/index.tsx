@@ -5,10 +5,10 @@ const Timestamp = ({ time, bg }: TimeStampProps) => {
   return (
     <section 
         className={`
-            ${styles.container}
-            ${bg==="green" && styles.green}
-            ${bg==="blue" && styles.blue}
-            ${bg==="grey" && styles.grey}
+          ${styles.container}
+          ${bg==="green" && styles.green}
+          ${bg==="blue" && styles.blue}
+          ${bg==="grey" && styles.grey}
         `}
     >
         {time}

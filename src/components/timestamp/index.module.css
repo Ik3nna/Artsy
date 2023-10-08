@@ -1,8 +1,11 @@
 .container {
-    padding: 5px 10px;
+    padding: 10px 20px;
+    width: 150px;
     border-radius: 10px;
     color: var(--bgColor);
     font-size: 14px;
+    cursor: pointer;
+    text-align: center;
 }
 .green {
     background-color: #3EA03B;
@@ -12,4 +15,11 @@
 }
 .grey {
     background-color: #999EA5;
+}
+
+
+@media (max-width: 991px) {
+    .container {
+        width: 120px;
+    }
 }
