@@ -28,7 +28,7 @@ const MarketplaceId: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [showLove, setShowLove] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const reduxDispatch = useDispatch();
