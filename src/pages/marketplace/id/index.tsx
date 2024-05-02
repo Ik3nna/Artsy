@@ -56,6 +56,7 @@ const MarketplaceId: React.FC = () => {
           quantity: quantity
         }
         reduxDispatch(cartActions.addToCart(item))
+        window.scroll(0, 0)
       }
     }
   }

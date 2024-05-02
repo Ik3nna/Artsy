@@ -61,6 +61,9 @@ const cartSlice = createSlice({
             state.totalQuantity = state.itemsList.reduce((total, item) => total + item.quantity, 0);
             state.totalPrice = state.itemsList.reduce((total, item) => total + item.quantity * parseInt(item.price, 10), 0);
             localStorage.setItem("cart", JSON.stringify(state.itemsList));
+       },
+       clearCart (state) {
+            state.itemsList = [];
        }
     }
 })

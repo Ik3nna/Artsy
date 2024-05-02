@@ -81,7 +81,7 @@
     column-gap: 40px;
 }
 .flex_input {
-    width: 280px !important;
+    width: 100% !important;
 }
 .shipping .btn, .payment .btn {
     margin-top: 30px;

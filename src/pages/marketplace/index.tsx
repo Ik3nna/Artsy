@@ -204,7 +204,7 @@ const Marketplace: React.FC = () => {
             <div className={styles.products}>
                 {
                     data.filter((item)=>checkedCategories.length === 0 || checkedCategories.includes(item.category)).map((item)=>(
-                        <div key={item.id} className={styles.box_container} onClick={()=>window.location.href=`marketplace/${item.id}`}>
+                        <div key={item.id} className={styles.box_container} onClick={()=>{window.location.href=`marketplace/${item.id}`; window.scroll(0, 0)}}>
                             <img src={item.image} alt={item.artist} />
                             <div>{item.artist}</div>
                             <div>${item.price}</div>

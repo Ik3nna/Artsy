@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store';
 import styles from "./index.module.css";
 import CartItems from '../../../components/cart-items';
@@ -16,6 +16,7 @@ import phantom from "../../../assets/Phantom - jpeg.svg";
 import delivery from "../../../assets/Woman get online delivery.svg";
 import celebration from "../../../assets/noto_party-popper.svg";
 import watermark from "../../../assets/delivery-logo.svg";
+import { cartActions } from '../../../store/cart-slice';
 
 // icons
 import { BiSolidLock } from "react-icons/bi";
@@ -24,9 +25,11 @@ const Checkout: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   const totalQuantity = useSelector((state: RootState)=>state.cart.totalQuantity);
   const totalPrice = useSelector((state: RootState)=>state.cart.totalPrice);
+  const reduxDispatch = useDispatch();
 
   const handleTabClick = (tab: number) =>{
     setSelectedTab(tab);
+    window.scroll(0, 0);
   }
 
   return (
@@ -47,7 +50,7 @@ const Checkout: React.FC = () => {
 
           <article className={styles.checkout_container}>
             <div>
-              <Button linkTo="#" className="btn" onClick={()=>setSelectedTab(1)}>Proceed to checkout</Button>
+              <Button linkTo="#" className="btn" onClick={()=>handleTabClick(1)}>Proceed to checkout</Button>
               <Link to="/marketplace">Continue shopping</Link>
             </div>
 
@@ -133,7 +136,7 @@ const Checkout: React.FC = () => {
                 placeholder="0812 3456 785"
               />
 
-              <Button linkTo="#" className="btn" onClick={()=>setSelectedTab(2)}>Proceed to payment</Button>
+              <Button linkTo="#" className="btn" onClick={()=>handleTabClick(2)}>Proceed to payment</Button>
             </div>
 
             <article className={styles.shipping_deets}>
@@ -206,7 +209,7 @@ const Checkout: React.FC = () => {
                 />
               </div>
 
-              <Button linkTo="#" className="btn" onClick={()=>setSelectedTab(3)}>Confirm</Button>
+              <Button linkTo="#" className="btn" onClick={()=>{handleTabClick(3); reduxDispatch(cartActions.clearCart())}}>Confirm</Button>
             </div>
 
 
@@ -222,7 +225,7 @@ const Checkout: React.FC = () => {
 
               <div>Actively linked to Yaba, Lagos Nigeria.</div><hr />
 
-              <div>Expected arrival date: Between 22nd September and 26th September 20222</div>
+              <div>Expected arrival date: Between 22nd September and 26th September 2022</div>
 
               <div className={styles.price_details}>
                 <div>Products in cart: <div>{totalQuantity} items</div></div>

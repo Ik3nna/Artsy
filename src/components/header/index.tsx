@@ -36,6 +36,11 @@ const Header: React.FC = ()=> {
 
     const totalQuantity = useSelector((state: RootState)=> state.cart.totalQuantity);
 
+    const goToCart = ()=> {
+        window.location.href="/marketplace/checkout"
+        window.scroll(0, 0)
+    }
+
     return(
         <>
             <header ref={stickyRef} className={`${active ? styles.active : ""} ${sticky && styles.fixedNav}`}>
@@ -46,7 +51,7 @@ const Header: React.FC = ()=> {
                         <ul>
                             {navItem.map((navlink)=>
                                 <li key={navlink.id}>
-                                    <NavLink className={navLinkClass} to={navlink.linkTo} onClick={()=> setActive(!active)}>
+                                    <NavLink className={navLinkClass} to={navlink.linkTo} onClick={()=>{setActive(!active); window.scroll(0, 0)}}>
                                         {navlink.item}
                                     </NavLink>
                                 </li>
@@ -58,7 +63,7 @@ const Header: React.FC = ()=> {
                         <BiSearch />
 
                         <div className={styles.cart_icon}>
-                            <BiCart onClick={()=>{totalQuantity > 0 ? window.location.href="/marketplace/checkout": ""}} />
+                            <BiCart onClick={()=>{totalQuantity > 0 ? goToCart() : ""}} />
                             {totalQuantity > 0 &&
                                 <div className={styles.cart_content}>{totalQuantity}</div>
                             }
