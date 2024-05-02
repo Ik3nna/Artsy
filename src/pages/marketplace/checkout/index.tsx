@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store';
 import styles from "./index.module.css";
 import CartItems from '../../../components/cart-items';
 import Button from '../../../components/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../../components/input';
 import { motion } from 'framer-motion';
 
@@ -26,11 +26,24 @@ const Checkout: React.FC = () => {
   const totalQuantity = useSelector((state: RootState)=>state.cart.totalQuantity);
   const totalPrice = useSelector((state: RootState)=>state.cart.totalPrice);
   const reduxDispatch = useDispatch();
+  const navigate = useNavigate()
 
   const handleTabClick = (tab: number) =>{
     setSelectedTab(tab);
     window.scroll(0, 0);
+
+    if (tab === 3) {
+      reduxDispatch(cartActions.clearCart())
+    }
   }
+
+  useEffect(()=>{
+    if (selectedTab === 3) {
+      setTimeout(()=>{
+        navigate("/home")
+      }, 1500)
+    }
+  }, [selectedTab])
 
   return (
     <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={styles.container}>
@@ -209,7 +222,7 @@ const Checkout: React.FC = () => {
                 />
               </div>
 
-              <Button linkTo="#" className="btn" onClick={()=>{handleTabClick(3); reduxDispatch(cartActions.clearCart())}}>Confirm</Button>
+              <Button linkTo="#" className="btn" onClick={()=>handleTabClick(3)}>Confirm</Button>
             </div>
 
 
