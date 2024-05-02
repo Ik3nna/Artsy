@@ -75,7 +75,11 @@ nav ul {
 }
 
 
-
+@media (min-width: 2200px) {
+    .header {
+        width: 60%;
+    }
+}
 @media (min-width: 992px) and (max-width: 1199px) {
     .header a {
       margin-right: 25px;

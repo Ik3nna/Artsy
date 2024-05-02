@@ -73,7 +73,6 @@ const MarketplaceId: React.FC = () => {
     { id: 5, image: image5, alt: "five" },
     { id: 6, image: image2, alt: "six" },
   ]
-  setShowDropdown
 
   if (id !== undefined) {
     const findItem = Data.find((item)=>item.id == parseInt(id, 10));

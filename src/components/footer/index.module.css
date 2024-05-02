@@ -73,9 +73,13 @@
 .mn_footer .other_links > article {
     display: flex;
     align-items: center;
+    column-gap: 10px;
 }
-.mn_footer .other_links > article div:nth-of-type(1) {
-    margin-right: 10px;
+.other_links article:nth-of-type(1) svg {
+    margin-top: 5px
+}
+.other_links article:nth-of-type(2) svg {
+    margin-top: 3px;
 }
 .mn_footer .other_links a:hover {
     border-bottom: none;
@@ -86,7 +90,11 @@
 }
 
 
-
+@media (min-width: 2200px) {
+    .newsletter, .mn_footer {
+        width: 60%;
+    }
+}
 @media (min-width: 992px) and (max-width: 1199px) {
     footer .newsletter p:nth-of-type(1) {
         font-size: 22.2105px;
@@ -129,6 +137,12 @@
         height: 60px;
         width: 90%;
         margin-bottom: 20px;
+    }
+    .other_links article:nth-of-type(1) svg {
+        margin-top: 3px
+    }
+    .other_links article:nth-of-type(2) svg {
+        margin-top: 2px;
     }
     footer .newsletter p:nth-of-type(1) {
         font-size: 24px;

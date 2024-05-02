@@ -25,7 +25,7 @@
     margin: auto;
     text-align: center;
 }
-.mySwiper img{
+.mySwiper img {
     width: 358px; 
     margin-top: 170px;
 }
@@ -413,7 +413,25 @@
 
 
 
-
+@media (min-width: 2200px) {
+    .hero h1, 
+    .hero p, 
+    .products, 
+    .upcoming .content,
+    .linkContainer article,
+    .creators article {
+        width: 60%;
+    }
+    .mySwiper img {
+        width: calc(100vw / 6);
+        object-fit: cover;
+        margin-top: 170px;
+    }
+    .one, .two, .four, .five, .three, .six {
+        position: relative;
+        width: calc(100vw / 6);
+    }
+}
 @media (min-width: 1300px) and (max-width: 1460px) {
     .products section {
         column-gap: 40px;

@@ -62,21 +62,15 @@ const Footer: React.FC = () => {
                   
         <section className={styles.other_links}>
           <article>
-            <div>
-              <BsEnvelope />
-            </div>
-           
-            <div>
-              <a href = "mailto: artsystudios@gmail.com">
-                artsystudios@gmail.com
-              </a>
-            </div>
+            <BsEnvelope />
+  
+            <a href = "mailto: artsystudios@gmail.com">
+              artsystudios@gmail.com
+            </a>
           </article>
 
           <article>
-            <div>
-              <GoLocation />
-            </div>
+            <GoLocation />
            
             <div>
               Lagos, Nigeria.

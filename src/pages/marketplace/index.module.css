@@ -142,7 +142,14 @@
 }
 
 
-
+@media (min-width: 2200px) {
+    .container {
+        width: 60%;
+    }
+    .container article:nth-of-type(2) {
+        width: calc(60vw - 300px);
+    }
+}
 @media (min-width: 1200px) and (max-width: 1705px) {
     .container article:nth-of-type(1) {
         width: 200px;

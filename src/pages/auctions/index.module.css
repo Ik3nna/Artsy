@@ -86,7 +86,11 @@
 }
 
 
-
+@media (min-width: 2200px) {
+    .container {
+        width: 50%;
+    }
+}
 @media (min-width: 1200px) and (max-width: 1500px) {
     .container .slider .img_container {
         width: 450px;

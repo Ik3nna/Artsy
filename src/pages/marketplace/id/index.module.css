@@ -131,6 +131,12 @@
     justify-content: center;
 }
 
+
+@media (min-width: 2200px) {
+    .container {
+        width: 60%;
+    }
+}
 @media (min-width: 992px) and (max-width: 1199px) {
     .subContainer img {
         height: 850px;

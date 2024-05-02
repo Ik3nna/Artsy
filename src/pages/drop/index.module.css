@@ -93,7 +93,11 @@
 
 
 
-
+@media (min-width: 2200px) {
+    .container {
+        width: 40%;
+    }
+}
 @media (min-width: 1200px) and (max-width: 1400px) {
     .flex_container {
         column-gap: 40px;

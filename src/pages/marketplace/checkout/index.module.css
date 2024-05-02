@@ -189,6 +189,14 @@
 }
 
 
+@media (min-width: 2200px) {
+    .container {
+        width: 60%;
+    }
+    .payment_deets > div:nth-of-type(1) {
+        right: 20%;
+    }
+}
 @media (min-width: 1200px) and (max-width: 1500px) {
     .flex_input {
         width: 230px !important;
